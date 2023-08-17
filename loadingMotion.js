@@ -78,7 +78,7 @@ motionContainers.forEach((container) => {
       // rect2 animations
       { fill: '#00162C', x: '217' },
       { fill: '#00162C', x: '217', height: '280px' },
-      { fill: '#00162C', x: '217', y: '147' },
+      { fill: '#00162C', x: '217', y: '147', height: '133px' },
       { fill: '#00162C', x: '217', y: '147' },
       { fill: '#00162C', x: '217', y: '147' },
       { fill: '#00162C', x: '77', y: '147', width: '203px' },
