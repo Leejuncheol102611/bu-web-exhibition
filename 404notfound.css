@@ -72,6 +72,36 @@
 
 body {
   background: #fafbfa;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.a-cont {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+  font-family: Noto Sans KR;
+  font-size: 3rem;
+  font-weight: 500;
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
+  background-color: #00ab61;
+  transition: 0.5s;
+}
+
+a:hover {
+  padding: 1.2rem 2.4rem;
+  background-color: #00e37d;
+}
+
+a:focus-within {
+  background-color: #00ab61;
 }
 
 .books-btn {
@@ -372,3 +402,10 @@ body {
     box-shadow: 0px 0px 4px 0px rgba(0, 1, 1, 0.4);
   }
 }
+
+.pageLoading {
+  display: inline-block;
+  margin: 20px;
+}
+
+/* 여기에 필요한 CSS 스타일을 추가하세요 */

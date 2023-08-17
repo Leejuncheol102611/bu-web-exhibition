@@ -38,3 +38,5 @@ function animateBox(index) {
 }
 
 animateBox(0);
+
+
