@@ -1,0 +1,214 @@
+.books-btn {
+  display: flex;
+  background-color: #fff;
+}
+
+.books-icon {
+  display: inline-flex;
+  padding: 0.85714rem 1.71429rem;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 0.28571rem;
+  border-radius: 0.57143rem;
+  background: #fff;
+  cursor: pointer; /* 마우스 커서를 손가락 모양으로 변경 */
+}
+
+/* active */
+.books-icon.active {
+  animation: btnColor 0.5s forwards;
+}
+
+.books-icon.active svg path {
+  animation: changeColor 0.5s forwards;
+}
+
+.books-icon.active .btn-icon .rect1 {
+  animation: moveRect1 0.5s forwards;
+}
+
+.books-icon.active .btn-icon .rect2 {
+  animation: moveRect2 0.5s forwards;
+}
+
+.books-icon.active .btn-icon .rect3 {
+  animation: moveRect3 0.5s forwards;
+}
+
+.books-icon.active .btn-icon .rect4 {
+  animation: moveRect4 0.5s forwards;
+}
+
+.books-icon.active .icon-name {
+  animation: changeColor 0.5s forwards;
+}
+
+@keyframes moveRect1 {
+  0% {
+    transform: translateY(0);
+    fill: #d9d9d9;
+  }
+  100% {
+    transform: translateY(-0.3rem);
+    fill: white;
+  }
+}
+
+@keyframes moveRect2 {
+  0% {
+    transform: translateY(0);
+    fill: #d9d9d9;
+  }
+  100% {
+    transform: translateY(0);
+    fill: white;
+  }
+}
+
+@keyframes moveRect3 {
+  0% {
+    transform: translateY(0);
+    fill: #d9d9d9;
+  }
+  100% {
+    transform: translateY(0);
+    fill: white;
+  }
+}
+
+@keyframes moveRect4 {
+  0% {
+    stroke: #d9d9d9;
+  }
+  100% {
+    stroke: white;
+  }
+}
+
+@keyframes btnColor {
+  0% {
+    color: #d9d9d9;
+    background: none;
+  }
+  100% {
+    color: #fff;
+    background: #00ab61;
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25);
+  }
+}
+
+@keyframes changeColor {
+  0% {
+    color: #d9d9d9;
+    fill: #d9d9d9;
+  }
+  100% {
+    color: #fff;
+    fill: #fff;
+  }
+}
+
+/* inactive */
+.books-icon.inactive {
+  animation: reversebtnColor 0.5s forwards;
+}
+
+.books-icon.inactive svg path {
+  animation: reversechangeColor 0.5s forwards;
+}
+
+.books-icon.inactive .btn-icon .rect1 {
+  animation: reversemoveRect1 0.5s forwards;
+}
+
+.books-icon.inactive .btn-icon .rect2 {
+  animation: reversemoveRect2 0.5s forwards;
+}
+
+.books-icon.inactive .btn-icon .rect3 {
+  animation: reversemoveRect3 0.5s forwards;
+}
+
+.books-icon.inactive .btn-icon .rect4 {
+  animation: reversemoveRect4 0.5s forwards;
+}
+
+.books-icon.inactive .icon-name {
+  animation: reversechangeColor 0.5s forwards;
+}
+
+@keyframes reversemoveRect1 {
+  0% {
+    transform: translateY(-0.3rem);
+    fill: white;
+  }
+  100% {
+    transform: translateY(0);
+    fill: #d9d9d9;
+  }
+}
+
+@keyframes reversemoveRect2 {
+  0% {
+    transform: translateY(0);
+    fill: white;
+  }
+  100% {
+    transform: translateY(0);
+    fill: #d9d9d9;
+  }
+}
+
+@keyframes reversemoveRect3 {
+  0% {
+    transform: translateY(0);
+    fill: white;
+  }
+  100% {
+    transform: translateY(0);
+    fill: #d9d9d9;
+  }
+}
+
+@keyframes reversemoveRect4 {
+  0% {
+    stroke: white;
+  }
+  100% {
+    stroke: #d9d9d9;
+  }
+}
+
+@keyframes reversebtnColor {
+  0% {
+    color: #fff;
+    background: #00ab61;
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25);
+  }
+  100% {
+    color: #d9d9d9;
+    background: none;
+  }
+}
+
+@keyframes reversechangeColor {
+  0% {
+    color: #fff;
+    fill: #fff;
+  }
+  100% {
+    color: #d9d9d9;
+    fill: #d9d9d9;
+  }
+}
+
+.icon-name {
+  height: 2.57143rem;
+  flex-shrink: 0;
+  color: #d9d9d9;
+  font-family: Noto Sans KR;
+  font-size: 1.71429rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
