@@ -1,7 +1,7 @@
 const motionContainers = document.querySelectorAll('.pageLoading');
 const animationDuration = 300; // 애니메이션 지속 시간 (300ms)
 const cubicBezier = 'cubic-bezier(0.22, 0.01, 0.01, 1)';
-const delay = 50; // 지연 시간 (50ms)
+const delay = 0; // 지연 시간 (50ms)
 
 function completeAnimations(animations) {
     return animations.map(animation => {
