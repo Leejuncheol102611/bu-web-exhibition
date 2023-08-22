@@ -7,7 +7,15 @@ body {
 ul,
 li,
 button,
-input {
+input,
+p,
+span,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   list-style: none;
   padding: 0;
   margin: 0;
@@ -147,22 +155,72 @@ header {
 }
 
 main {
-  margin: 0 1.25rem;
+  margin: 0 15rem;
 
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 2.25rem;
+  gap: 3.75rem;
+}
+
+/*Profile Search page*/
+#personalProfile {
+  display: flex;
+  flex-direction: column;
+  margin: 3rem 0;
+  gap: 3rem;
+}
+.contentsWrap {
+  display: flex;
+  width: 90rem;
+  align-items: flex-start;
+  align-content: flex-start;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.profileCard {
+  display: flex;
+  width: 21.375rem;
+  padding: 1.5rem 0;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+
+  border-radius: 0.75rem;
+  border-top: 1px solid #3dd6b1;
+  background: #141414;
+}
+
+.profileImg {
+  width: 18.375rem;
+  height: 21.1875rem;
+
+  border-radius: 0.75rem;
+  object-fit: cover;
+}
+
+.profileCardName {
+  color: #fff;
+  font-family: Inter;
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
 }
 
 h1 {
   color: #fff;
   font-family: Inter;
-  font-size: 1.5rem;
+  font-size: 3rem;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
   text-transform: capitalize;
+}
+
+.searchTitle {
+  margin-top: 3rem;
 }
 
 @media (max-width: 488px) {
@@ -276,5 +334,24 @@ h1 {
   .autocompleteList li:hover {
     cursor: pointer;
     color: var(--header-text-on);
+  }
+
+  main {
+    margin: 0 1.25rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2.25rem;
+  }
+
+  h1 {
+    color: #fff;
+    font-family: Inter;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-transform: capitalize;
   }
 }
