@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>웹 프로젝트 졸업전시</title>
     <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="font-family.css" />
+    <link rel="stylesheet" href="font-family.css"/>
+    <script src="./js/header.js"></script>
   </head>
   <body>
     <header>
@@ -33,9 +34,87 @@
 
     <main>
       <div class="searchTitle">
-        <h1 class="sectionTitle">Proflie</h1>
+        <h1 class="sectionTitle">Profile</h1>
       </div>
-      <section id="personalProfile"></section>
+      <section id="personalProfile">
+        <div class="contentsWrap">
+            <div class="profileCard">
+              <img src="./profileimg/이광원.jpg" alt="" class="profileImg" />
+              <p class="profileCardName">권정연</p>
+            </div>
+            <div class="profileCard">
+              <img src="./profileimg/이광원.jpg" alt="" class="profileImg" />
+              <p class="profileCardName">김동우</p>
+            </div>
+            <div class="profileCard">
+              <img src="./profileimg/이광원.jpg" alt="" class="profileImg" />
+              <p class="profileCardName">김민혁</p>
+            </div>
+            <div class="profileCard">
+              <img src="./profileimg/이광원.jpg" alt="" class="profileImg" />
+              <p class="profileCardName">김주희</p>
+            </div>
+            <div class="profileCard">
+              <img src="./profileimg/이광원.jpg" alt="" class="profileImg" />
+              <p class="profileCardName">방민수</p>
+            </div>
+            <div class="profileCard">
+              <img src="./profileimg/이광원.jpg" alt="" class="profileImg" />
+              <p class="profileCardName">백홍은</p>
+            </div>
+            <div class="profileCard">
+                <img src="./profileimg/이광원.jpg" alt="" class="profileImg" />
+                <p class="profileCardName">권정연</p>
+              </div>
+              <div class="profileCard">
+                <img src="./profileimg/이광원.jpg" alt="" class="profileImg" />
+                <p class="profileCardName">김동우</p>
+              </div>
+              <div class="profileCard">
+                <img src="./profileimg/이광원.jpg" alt="" class="profileImg" />
+                <p class="profileCardName">김민혁</p>
+              </div>
+              <div class="profileCard">
+                <img src="./profileimg/이광원.jpg" alt="" class="profileImg" />
+                <p class="profileCardName">김주희</p>
+              </div>
+              <div class="profileCard">
+                <img src="./profileimg/이광원.jpg" alt="" class="profileImg" />
+                <p class="profileCardName">방민수</p>
+              </div>
+              <div class="profileCard">
+                <img src="./profileimg/이광원.jpg" alt="" class="profileImg" />
+                <p class="profileCardName">백홍은</p>
+              </div>
+              <div class="profileCard">
+                <img src="./profileimg/이광원.jpg" alt="" class="profileImg" />
+                <p class="profileCardName">권정연</p>
+              </div>
+              <div class="profileCard">
+                <img src="./profileimg/이광원.jpg" alt="" class="profileImg" />
+                <p class="profileCardName">김동우</p>
+              </div>
+              <div class="profileCard">
+                <img src="./profileimg/이광원.jpg" alt="" class="profileImg" />
+                <p class="profileCardName">김민혁</p>
+              </div>
+              <div class="profileCard">
+                <img src="./profileimg/이광원.jpg" alt="" class="profileImg" />
+                <p class="profileCardName">김주희</p>
+              </div>
+              <div class="profileCard">
+                <img src="./profileimg/이광원.jpg" alt="" class="profileImg" />
+                <p class="profileCardName">방민수</p>
+              </div>
+              <div class="profileCard">
+                <img src="./profileimg/이광원.jpg" alt="" class="profileImg" />
+                <p class="profileCardName">백홍은</p>
+              </div>
+              <div class="profileCard">
+                <img src="./profileimg/이광원.jpg" alt="" class="profileImg" />
+                <p class="profileCardName">백홍은</p>
+              </div>
+      </section>
     </main>
 
     <script>
@@ -183,6 +262,21 @@
       const queryString = window.location.search;
       const urlParams = new URLSearchParams(queryString);
       const searchName = urlParams.get("name");
+
+      document.addEventListener("click", function (event) {
+        if (
+          !searchResults.contains(event.target) &&
+          event.target !== searchInput
+        ) {
+          searchResults.innerHTML = "";
+        }
+      });
+
+      searchInput.addEventListener("click", function (event) {
+        if (searchResults.innerHTML.trim() === "") {
+          handleInput();
+        }
+      });
 
       if (searchName) {
         // URL에서 가져온 검색어를 디코딩하여 input에 채워넣음

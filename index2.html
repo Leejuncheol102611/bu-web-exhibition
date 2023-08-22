@@ -6,13 +6,14 @@
     <title>웹 프로젝트 졸업전시</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="font-family.css" />
+    <script src="./js/header.js"></script>
   </head>
   <body>
     <header>
       <div class="header_container">
         <div class="button">
           <a href="#" class="header_btn active">홈</a>
-          <a href="#" class="header_btn">소개</a>
+          <a href="./search.html" class="header_btn">소개</a>
           <div class="search">
             <div class="searchBox">
               <input
@@ -30,37 +31,186 @@
         </div>
       </div>
     </header>
+    <article class="mainBanner">
+        <p>메인배너 준비중</p>
+        <div class="loadingArea">
+            <div class="pageLoading">
+              <svg width="280" height="280" viewBox="0 0 280 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect class="rect1" width="203" height="133" rx="8" fill="#00AB61"/>
+                <rect class="rect2" x="217" width="63" height="133" rx="8" fill="#00162C"/>
+                <rect class="rect3" y="147" width="63" height="133" rx="8" fill="#00162C"/>
+                <rect class="rect4" x="77" y="147" width="203" height="133" rx="8" fill="#00AB61"/>
+              </svg>
+          </div>
+    </article>
+    <article class="lineBanner"></article>
 
     <main>
-      <section id="personalProfile">
-        <h1 class="sectionTitle">personal Proflie</h1>
+      <section id="professor">
+        <h1 class="sectionTitle">Professor</h1>
         <div class="contentsWrap">
-          <div class="profileCard">
-            <img src="./profileimg/이광원.jpg" alt="" class="profileImg" />
-            <p class="profileCardName">권정연</p>
+          <div class="container">
+            <div class="character">
+              <span class="bold">정</span>
+              <span class="medium">이향재 교수님</span>
+            </div>
+            <div class="contentsBox">
+              <img class="professorImg" src="#" alt="" />
+              <div class="professorInfo">
+                <div class="history">
+                  <span class="subtle medium">약력</span>
+                  <p>0000.00 ~ 백석대학교 디자인영상학부 시각디자인전공 교수</p>
+                  <p>0000.00 ~ 백석대학교 디자인영상학부 시각디자인전공 교수</p>
+                </div>
+                <div class="contact">
+                  <div class="contactWrap">
+                    <img src="./icons/call-outline.svg" alt="" />
+                    <p>010-0000-0000</p>
+                  </div>
+                  <div class="contactWrap">
+                    <img src="./icons/email-outline.svg" alt="" />
+                    <p>professor@bu.ac.kr</p>
+                  </div>
+                  <div class="contactWrap">
+                    <img src="./icons/univ-outline.svg" alt="" />
+                    <p>웹프로젝트 담당교수</p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="profileCard">
-            <img src="./profileimg/이광원.jpg" alt="" class="profileImg" />
-            <p class="profileCardName">김동우</p>
+          <div class="container">
+            <div class="character">
+              <span class="bold">정</span>
+              <span class="medium">이향재 교수님</span>
+            </div>
+            <div class="contentsBox">
+              <img class="professorImg" src="#" alt="" />
+              <div class="professorInfo">
+                <div class="history">
+                  <span class="subtle medium">약력</span>
+                  <p>0000.00 ~ 백석대학교 디자인영상학부 시각디자인전공 교수</p>
+                  <p>0000.00 ~ 백석대학교 디자인영상학부 시각디자인전공 교수</p>
+                </div>
+                <div class="contact">
+                  <div class="contactWrap">
+                    <img src="./icons/call-outline.svg" alt="" />
+                    <p>010-0000-0000</p>
+                  </div>
+                  <div class="contactWrap">
+                    <img src="./icons/email-outline.svg" alt="" />
+                    <p>professor@bu.ac.kr</p>
+                  </div>
+                  <div class="contactWrap">
+                    <img src="./icons/univ-outline.svg" alt="" />
+                    <p>웹프로젝트 담당교수</p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="profileCard">
-            <img src="./profileimg/이광원.jpg" alt="" class="profileImg" />
-            <p class="profileCardName">김민혁</p>
-          </div>
-          <div class="profileCard">
-            <img src="./profileimg/이광원.jpg" alt="" class="profileImg" />
-            <p class="profileCardName">김주희</p>
-          </div>
-          <div class="profileCard">
-            <img src="./profileimg/이광원.jpg" alt="" class="profileImg" />
-            <p class="profileCardName">방민수</p>
-          </div>
-          <div class="profileCard">
-            <img src="./profileimg/이광원.jpg" alt="" class="profileImg" />
-            <p class="profileCardName">백홍은</p>
-          </div>
+        </div>
+      </section>
+
+      <section class="underGradute">
+        <h1 class="sectionTitle">undergradute</h1>
+        <div class="contentsWrap">
+          <ul class="selectBg">
+            <li>
+              <div class="selectArea">
+                <div class="select active">
+                  <img class="minImg" src="./profileimg/이광원.jpg" alt="" />
+                  <div class="selectText">
+                    <p>이광원</p>
+                    <div class="contactWrap">
+                      <img src="./icons/call-outline.svg" alt="" />
+                      <p>010-0000-0000</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="select">
+                  <img class="minImg" src="./profileimg/이광원.jpg" alt="" />
+                  <div class="selectText">
+                    <p>이광원</p>
+                    <div class="contactWrap">
+                      <img src="./icons/call-outline.svg" alt="" />
+                      <p>010-0000-0000</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="select">
+                  <img class="minImg" src="./profileimg/이광원.jpg" alt="" />
+                  <div class="selectText">
+                    <p>이광원</p>
+                    <div class="contactWrap">
+                      <img src="./icons/call-outline.svg" alt="" />
+                      <p>010-0000-0000</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="select">
+                  <img class="minImg" src="./profileimg/이광원.jpg" alt="" />
+                  <div class="selectText">
+                    <p>이광원</p>
+                    <div class="contactWrap">
+                      <img src="./icons/call-outline.svg" alt="" />
+                      <p>010-0000-0000</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="select">
+                  <img class="minImg" src="./profileimg/이광원.jpg" alt="" />
+                  <div class="selectText">
+                    <p>이광원</p>
+                    <div class="contactWrap">
+                      <img src="./icons/call-outline.svg" alt="" />
+                      <p>010-0000-0000</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="projectsContainer">
+                <div class="projectCard">
+                  <h3 class="bold">체커 - 흡연관리 서비스</h3>
+                  <img class="projectImg" src="" alt="" />
+                  <p>
+                    작품설명 3줄 작성 작품설명 3줄 작성 작품설명 3줄 작성
+                    작품설명 3줄 작성 작품설명 3줄 작성 작품설명 3줄
+                    작성작품설명 3줄 작성
+                  </p>
+                </div>
+                <div class="projectCard">
+                  <h3 class="bold">체커 - 흡연관리 서비스</h3>
+                  <img class="projectImg" src="" alt="" />
+                  <p>
+                    작품설명 3줄 작성 작품설명 3줄 작성 작품설명 3줄 작성
+                    작품설명 3줄 작성 작품설명 3줄 작성 작품설명 3줄
+                    작성작품설명 3줄 작성
+                  </p>
+                </div>
+                <div class="projectCard">
+                  <h3 class="bold">체커 - 흡연관리 서비스</h3>
+                  <img class="projectImg" src="" alt="" />
+                  <p>
+                    작품설명 3줄 작성 작품설명 3줄 작성 작품설명 3줄 작성
+                    작품설명 3줄 작성 작품설명 3줄 작성 작품설명 3줄
+                    작성작품설명 3줄 작성
+                  </p>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="personalProfile">
+        <h1 class="sectionTitle">Profile</h1>
+        <div class="contentsWrap"></div>
       </section>
     </main>
     <script src="./js/search.js"></script>
+    <script src="loadingMotion.js"></script>
   </body>
 </html>

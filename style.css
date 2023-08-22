@@ -1,7 +1,12 @@
 body {
+  font-family: Noto Sans KR;
   background: var(--page-bg);
   margin: 0;
   padding: 0;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  color: var(--header-text-on);
 }
 
 ul,
@@ -21,9 +26,13 @@ h6 {
   margin: 0;
 }
 
+img {
+  object-fit: cover;
+}
+
 :root {
   --page-bg: #1e1e1e;
-  --header-bg: rgba(0, 0, 0, 0.5);
+  --header-bg: rgba(0, 0, 0, 0.8);
   --header-text-on: #ffffff;
   --header-text-off: #767676;
   --header-text-hover: #d9d9d9;
@@ -33,14 +42,35 @@ a {
   text-decoration: none;
 }
 
+.mainBanner {
+  width: 120rem;
+  height: 67.5rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: #141414;
+  gap: 1rem;
+}
+
 /*Header*/
 header {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 0.625rem;
   background: var(--header-bg);
+
+  transition: opacity 0.3s ease-in-out;
+}
+
+header {
+  opacity: 1;
 }
 
 .header_btn {
@@ -51,6 +81,12 @@ header {
   font-style: normal;
   font-weight: 500;
   line-height: normal;
+
+  transition: 0.3s ease-out;
+}
+
+.header_btn:hover {
+  color: var(--header-text-hover);
 }
 
 .header_btn.active {
@@ -156,7 +192,7 @@ header {
 
 main {
   margin: 0 15rem;
-
+  margin-top: 3rem;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -167,15 +203,21 @@ main {
 #personalProfile {
   display: flex;
   flex-direction: column;
-  margin: 3rem 0;
-  gap: 3rem;
+  gap: 3.75rem;
 }
 .contentsWrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#personalProfile .contentsWrap {
   display: flex;
   width: 90rem;
   align-items: flex-start;
   align-content: flex-start;
-  gap: 1.5rem;
+  justify-content: flex-start;
+  gap: 3rem 1.5rem;
   flex-wrap: wrap;
 }
 
@@ -197,7 +239,6 @@ main {
   height: 21.1875rem;
 
   border-radius: 0.75rem;
-  object-fit: cover;
 }
 
 .profileCardName {
@@ -219,9 +260,282 @@ h1 {
   text-transform: capitalize;
 }
 
-.searchTitle {
-  margin-top: 3rem;
+/*폰트*/
+
+.bold {
+  font-weight: 700;
 }
+.medium {
+  font-weight: 500;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  gap: 3.75rem;
+}
+
+/*section 프로페서*/
+#professor .contentsWrap {
+  width: 90rem;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+#professor .container {
+  display: flex;
+  width: 39.75rem;
+  padding: 2.25rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.5rem;
+  flex-shrink: 0;
+
+  border-radius: 0.75rem;
+  border-top: 1px solid #3dd6b1;
+  background: #141414;
+}
+.character {
+  color: #fff;
+  font-family: Inter;
+  font-size: 1.25rem;
+  font-style: normal;
+  line-height: normal;
+  text-transform: capitalize;
+}
+
+.contentsBox {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  align-self: stretch;
+}
+
+.professorImg {
+  width: 11.75rem;
+  height: 15.375rem;
+
+  border-radius: 0.75rem;
+}
+
+.professorInfo {
+  display: flex;
+  height: 15.375rem;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.history {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.history .subtle.medium {
+  margin-bottom: 0.25rem;
+}
+
+.contact {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.contact .contactWrap {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+/*section 컨테이너 *특수*/
+
+.minImg {
+  margin-left: 1.5rem;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.75rem;
+}
+
+.selectBg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 0.75rem;
+  background: #141414;
+}
+
+.selectArea {
+  display: flex;
+  width: 19.875rem;
+  height: 37.125rem;
+  flex-direction: column;
+  align-items: center;
+}
+
+.select {
+  display: flex;
+  height: 4.5rem;
+  width: 19.875rem;
+  padding-left: 0px;
+  align-items: center;
+  gap: 1.5rem;
+  transition: 0.3s ease-out;
+  cursor: pointer;
+}
+
+.select:hover {
+  background: var(--header-text-hover);
+}
+
+@keyframes selectHover {
+  0% {
+    background: var(#141414);
+  }
+  100% {
+    background: var(--header-text-off);
+  }
+}
+
+.selectText {
+  display: flex;
+  flex-direction: column;
+  gap: 0.94rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.selectText p {
+  color: var(--header-text-off);
+  font-family: Noto Sans KR;
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-transform: capitalize;
+}
+
+.contactWrap {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  display: none;
+}
+
+.contactWrap p {
+  color: var(--header-text-off);
+  font-family: Noto Sans KR;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.select.active {
+  display: flex;
+  width: 19.875rem;
+  height: 6rem;
+  align-items: flex-start;
+  gap: 1.5rem;
+
+  border-bottom: 2px solid #3dd6b1;
+}
+
+.select.active:hover {
+  background: none;
+}
+
+.select.active .minImg {
+  margin-top: 1rem;
+  width: 3.75rem;
+  height: 3.75rem;
+}
+
+.select.active .contactWrap {
+  display: flex;
+}
+
+.select.active .selectText p {
+  color: var(--header-text-on);
+  font-family: Noto Sans KR;
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-transform: capitalize;
+}
+
+.select.active .contactWrap p {
+  color: var(--header-text-on);
+  font-family: Noto Sans KR;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.projectsContainer {
+  width: 70.125rem;
+  display: flex;
+  padding: 1.5rem;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  border-radius: 0 0.75rem 0.75rem 0;
+  background: #141414;
+}
+
+.projectCard {
+  cursor: pointer;
+  display: flex;
+  padding: 1.5rem;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+
+  border-radius: 0.75rem;
+  border-top: 1px solid #3dd6b1;
+  background: #141414;
+  transition: 0.3s ease-out;
+
+  position: relative;
+  bottom: 0px;
+}
+
+.projectCard:hover {
+  position: relative;
+  bottom: 0.5rem;
+  box-shadow: 0px 0px 8px 0px rgba(255, 255, 255, 0.15);
+}
+
+.projectImg {
+  width: 18.375rem;
+  height: 26rem;
+
+  border-radius: 0.75rem;
+}
+
+.projectCard p {
+  width: 18.375rem;
+  height: 3.5625rem;
+
+  overflow-y: scroll;
+  color: #fff;
+  text-overflow: ellipsis;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-transform: capitalize;
+}
+
+p::-webkit-scrollbar {
+  width: 0.75rem;
+}
+
+/*section 컨테이너 *4*/
 
 @media (max-width: 488px) {
   .header_container {
