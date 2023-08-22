@@ -1,0 +1,280 @@
+body {
+  background: var(--page-bg);
+  margin: 0;
+  padding: 0;
+}
+
+ul,
+li,
+button,
+input {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+:root {
+  --page-bg: #1e1e1e;
+  --header-bg: rgba(0, 0, 0, 0.5);
+  --header-text-on: #ffffff;
+  --header-text-off: #767676;
+  --header-text-hover: #d9d9d9;
+}
+
+a {
+  text-decoration: none;
+}
+
+/*Header*/
+header {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.625rem;
+  background: var(--header-bg);
+}
+
+.header_btn {
+  color: var(--header-text-off);
+  text-align: center;
+  font-family: Noto Sans KR;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.header_btn.active {
+  color: var(--header-text-on);
+}
+
+.header_container {
+  width: 75%;
+}
+
+.button {
+  display: flex;
+
+  height: 5rem;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+/*Header검색창*/
+.searchBox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 0.5rem;
+  border: 0.063rem solid #fff;
+  border-style: inset;
+  width: 13.5rem;
+  padding: 0.5rem 0.75rem;
+}
+
+#searchInput::placeholder {
+  width: 9.75rem;
+  color: var(--header-text-off);
+  text-align: start;
+  font-family: Noto Sans KR;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+#searchInput {
+  width: 9.75rem;
+  border: none;
+  outline: none;
+  background: none;
+  color: var(--header-text-on);
+  text-align: start;
+  font-family: Noto Sans KR;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+#searchButton {
+  border: none;
+  background: none;
+}
+
+.autocompleteList {
+  height: 13.5rem;
+  overflow-y: scroll;
+  margin-top: 0.75rem;
+  position: absolute;
+  border-radius: 0.5rem;
+  border: 0.063rem solid #fff;
+  border-style: inset;
+  background: var(--page-bg);
+  width: 15rem;
+}
+
+.autocompleteList::-webkit-scrollbar {
+  width: 0.75rem;
+}
+
+.autocompleteList::-webkit-scrollbar-thumb {
+  background: linear-gradient(#35f695, #98d6ff);
+  border-radius: 1rem;
+}
+
+.autocompleteList::-webkit-scrollbar-track {
+  width: 1rem;
+  background-color: var(--header-text-off);
+  border-radius: 0 0.4rem 0.4rem 0;
+}
+
+.autocompleteList li {
+  color: var(--header-text-off);
+  font-family: Noto Sans KR;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin: 0.75rem;
+}
+
+.autocompleteList li:hover {
+  cursor: pointer;
+  color: var(--header-text-on);
+}
+
+main {
+  margin: 0 1.25rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2.25rem;
+}
+
+h1 {
+  color: #fff;
+  font-family: Inter;
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-transform: capitalize;
+}
+
+@media (max-width: 488px) {
+  .header_container {
+    width: 90%;
+  }
+  .button {
+    display: flex;
+    height: 5rem;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 2.5rem;
+  }
+  .button a {
+    width: 2rem;
+  }
+
+  .searchButton {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  .header_btn {
+    color: var(--header-text-off);
+    text-align: center;
+    font-family: Noto Sans KR;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
+  /*Header검색창*/
+  .searchBox {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 0.5rem;
+    border: 0.063rem solid #fff;
+    border-style: inset;
+    width: 9.625rem;
+    padding: 0.5rem 0.75rem;
+  }
+
+  #searchInput::placeholder {
+    width: 9.75rem;
+    color: var(--header-text-off);
+    text-align: start;
+    font-family: Noto Sans KR;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+  }
+
+  #searchInput {
+    width: 7.25rem;
+    border: none;
+    outline: none;
+    background: none;
+    color: var(--header-text-on);
+    text-align: start;
+    font-family: Noto Sans KR;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+  }
+
+  #searchButton {
+    border: none;
+    background: none;
+  }
+
+  .autocompleteList {
+    width: 11.5rem;
+    height: 13.5rem;
+    overflow-y: scroll;
+    margin-top: 0.75rem;
+    position: absolute;
+    border-radius: 0.5rem;
+    border: 0.063rem solid #fff;
+    border-style: inset;
+    background: var(--page-bg);
+  }
+
+  .autocompleteList::-webkit-scrollbar {
+    width: 0.75rem;
+  }
+
+  .autocompleteList::-webkit-scrollbar-thumb {
+    background: linear-gradient(#35f695, #98d6ff);
+    border-radius: 1rem;
+  }
+
+  .autocompleteList::-webkit-scrollbar-track {
+    width: 1rem;
+    background-color: var(--header-text-off);
+    border-radius: 0 0.4rem 0.4rem 0;
+  }
+
+  .autocompleteList li {
+    color: var(--header-text-off);
+    font-family: Noto Sans KR;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin: 0.75rem;
+  }
+
+  .autocompleteList li:hover {
+    cursor: pointer;
+    color: var(--header-text-on);
+  }
+}
