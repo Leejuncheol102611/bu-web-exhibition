@@ -65,7 +65,7 @@ header {
   align-items: center;
   gap: 0.625rem;
   background: var(--header-bg);
-
+  z-index: 3;
   transition: opacity 0.3s ease-in-out;
 }
 

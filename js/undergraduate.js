@@ -1,7 +1,4 @@
 
-
-
-
 const projectsSlider = document.querySelector(".projectsSlider");
 const leftBtn = document.querySelector(".cardBtn.left");
 const rightBtn = document.querySelector(".cardBtn.right");
@@ -49,58 +46,55 @@ if (isMobile) {
     updateButtonVisibility();
   });
 }
-projectsSlider.addEventListener("mousedown", (e) => {
-    // 뷰포트 너비가 488px 이하일 경우에만 드래그 동작 활성화
-    if (isMobile) {
+
+if (isMobile) {
+    leftBtn.addEventListener("click", () => {
+      currentIndex = Math.max(currentIndex - 1, 0);
+      updateSlide();
+      updateButtonVisibility();
+    });
+  
+    rightBtn.addEventListener("click", () => {
+      currentIndex = Math.min(currentIndex + 1, projectsSlider.children.length - 1);
+      updateSlide();
+      updateButtonVisibility();
+    });
+  
+    projectsSlider.addEventListener("touchstart", (e) => {
       isDragging = true;
-      startPosition = e.clientX;
+      startPosition = e.touches[0].clientX;
       animationID = requestAnimationFrame(animation);
       projectsSlider.style.transition = "none";
-      e.preventDefault();
       updateButtonVisibility();
-    }
-  });
+    });
   
-  projectsSlider.addEventListener("mousemove", (e) => {
-    if (isDragging) {
-      const diffX = e.clientX - startPosition;
-      currentTranslate = prevTranslate + diffX;
-      projectsSlider.style.transform = `translateX(${currentTranslate}px)`;
-      e.preventDefault();
-      updateButtonVisibility();
-    }
-  });
-  
-  document.addEventListener("mouseup", (e) => {
+    projectsSlider.addEventListener("touchmove", (e) => {
       if (isDragging) {
-        cancelAnimationFrame(animationID);
-        isDragging = false;
-    
-        const threshold = projectCardWidth / 2;
-        const diffX = e.clientX - startPosition;
-        const nextIndex = currentIndex + (diffX < 0 ? 1 : -1);
-    
-        if (nextIndex >= 0 && nextIndex < projectsSlider.children.length) {
-          currentIndex = nextIndex;
-        }
-    
-        updateSlide();
+        const diffX = e.touches[0].clientX - startPosition;
+        currentTranslate = prevTranslate + diffX;
+        projectsSlider.style.transform = `translateX(${currentTranslate}px)`;
         updateButtonVisibility();
-    
-        e.preventDefault();
       }
     });
   
-  document.addEventListener("mouseleave", (e) => {
-    if (isDragging) {
-      cancelAnimationFrame(animationID);
-      isDragging = false;
-      updateSlide();
-      updateButtonVisibility();
+    document.addEventListener("touchend", (e) => {
+      if (isDragging) {
+        cancelAnimationFrame(animationID);
+        isDragging = false;
   
-      e.preventDefault();
-    }
-  });
+        const threshold = projectCardWidth / 2;
+        const diffX = e.changedTouches[0].clientX - startPosition;
+        const nextIndex = currentIndex + (diffX < 0 ? 1 : -1);
+  
+        if (nextIndex >= 0 && nextIndex < projectsSlider.children.length) {
+          currentIndex = nextIndex;
+        }
+  
+        updateSlide();
+        updateButtonVisibility();
+      }
+    });
+  }
 
 function animation() {
   projectsSlider.style.transform = `translateX(${currentTranslate}px)`;
