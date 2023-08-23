@@ -121,6 +121,7 @@
       const personalProfile = document.getElementById("personalProfile");
       const searchInput = document.getElementById("searchInput");
       const searchResults = document.getElementById("searchResults");
+      const searchButton = document.getElementById("searchButton");
 
       const data = [
         {
@@ -290,6 +291,21 @@
           searchResults.innerHTML = "검색 결과가 없습니다.";
         }
       }
+
+      searchButton.addEventListener("click", showProfiles);
+
+function showProfiles() {
+  const inputName = searchInput.value.trim();
+  const matchedData = data.filter(item => item.name === inputName);
+
+  if (matchedData.length > 0) {
+    // 검색어를 encodeURIComponent를 사용하여 URL에 인코딩하여 전달
+    const encodedName = encodeURIComponent(inputName);
+    window.location.href = `search.html?name=${encodedName}`;
+  } else {
+    personalProfile.innerHTML = "검색 결과가 없습니다.";
+  }
+}
 
       searchInput.addEventListener("input", handleInput);
 

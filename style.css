@@ -43,7 +43,7 @@ a {
 }
 
 .mainBanner {
-  width: 120rem;
+  width: 100%;
   height: 67.5rem;
 
   display: flex;
@@ -59,7 +59,7 @@ header {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -351,6 +351,21 @@ section {
 
 /*section 컨테이너 *특수*/
 
+.cardBtn {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: row;
+  position: absolute;
+}
+
+.cardBtn.left {
+  left: 0;
+}
+
+.cardBtn.right {
+  right: 0;
+}
+
 .minImg {
   margin-left: 1.5rem;
   width: 3rem;
@@ -361,18 +376,38 @@ section {
 .selectBg {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
 
   border-radius: 0.75rem;
   background: #141414;
 }
 
+.selectBg:first-child {
+  background: #383838;
+}
+
 .selectArea {
   display: flex;
   width: 19.875rem;
-  height: 37.125rem;
+  height: 40.125rem;
   flex-direction: column;
   align-items: center;
+  border-radius: 0.75rem 0 0 0.75rem;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.selectArea::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+.selectArea::-webkit-scrollbar-thumb {
+  background: linear-gradient(#35f695, #98d6ff);
+}
+
+.selectArea::-webkit-scrollbar-track {
+  width: 0.5rem;
+  background-color: var(#383838);
 }
 
 .select {
@@ -443,6 +478,10 @@ section {
   border-bottom: 2px solid #3dd6b1;
 }
 
+.openSelectBtn {
+  display: none;
+}
+
 .select.active:hover {
   background: none;
 }
@@ -477,7 +516,6 @@ section {
 }
 
 .projectsContainer {
-  width: 70.125rem;
   display: flex;
   padding: 1.5rem;
   justify-content: center;
@@ -485,6 +523,19 @@ section {
   gap: 1.5rem;
   border-radius: 0 0.75rem 0.75rem 0;
   background: #141414;
+  border-left: 1px solid #707070;
+  box-shadow: -4px 0px 8px 0px rgba(0, 0, 0, 0.15);
+}
+
+.projectsSlider {
+  display: flex; /* 프로젝트 카드들을 가로로 나열 */
+
+  overflow: none;
+  gap: 1.5rem;
+}
+
+.cardBtn {
+  display: none;
 }
 
 .projectCard {
@@ -538,6 +589,11 @@ p::-webkit-scrollbar {
 /*section 컨테이너 *4*/
 
 @media (max-width: 488px) {
+  .body {
+    width: 100%;
+    overflow-x: hidden;
+  }
+
   .header_container {
     width: 90%;
   }
@@ -651,21 +707,332 @@ p::-webkit-scrollbar {
   }
 
   main {
-    margin: 0 1.25rem;
-
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 2.25rem;
+    align-items: center;
+    gap: 3.75rem;
   }
 
   h1 {
     color: #fff;
     font-family: Inter;
     font-size: 1.5rem;
+  }
+  /*section 프로페서*/
+  #professor .contentsWrap {
+    width: 20rem;
+    gap: 1.5rem;
+  }
+
+  #professor .container {
+    width: 18.5rem;
+    padding: 0.75rem;
+    gap: 0.75rem;
+    flex-shrink: 0;
+  }
+  .character {
+    font-size: 1rem;
+  }
+  .contentsBox {
+    gap: 0.75rem;
+  }
+
+  .professorImg {
+    width: 7.5rem;
+    height: 9.875rem;
+
+    border-radius: 0.75rem;
+  }
+
+  .professorInfo {
+    width: 10.25rem;
+    height: 9.875rem;
+  }
+  .history {
+    gap: 0.25rem;
+  }
+
+  .history .subtle.medium {
+    font-size: 0.875rem;
+    margin-bottom: 0rem;
+  }
+
+  .history p {
+    font-size: 0.625rem;
+    font-weight: 400;
+  }
+
+  .contact {
+    gap: 0.5rem;
+  }
+
+  .contact .contactWrap {
+    gap: 0.75rem;
+  }
+  .contactWrap p {
+    font-size: 0.625rem;
+  }
+
+  /*section 컨테이너 *특수*/
+
+  #underGraduate .contentsWrap {
+    overflow: hidden;
+    border-radius: 0.75rem;
+  }
+
+  .minImg {
+    margin-left: 0rem;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 0.75rem;
+  }
+
+  .selectBg {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 20rem;
+
+    border-radius: 0.75rem;
+    background: #141414;
+  }
+
+  .selectBg:first-child {
+    background: #383838;
+    position: relative;
+    z-index: 2;
+  }
+
+  .selectArea {
+    display: flex;
+    width: 20rem;
+    height: 4.5rem;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 0rem;
+  }
+
+  .selectArea::-webkit-scrollbar {
+    width: 0rem;
+  }
+
+  .selectList {
+    display: none;
+    overflow-y: scroll;
+    position: relative;
+  }
+  .selectList::-webkit-scrollbar {
+    width: 0rem;
+  }
+
+  .select {
+    display: flex;
+    height: 4.5rem;
+    width: 20rem;
+    padding-left: 1rem;
+    align-items: center;
+    gap: 1.5rem;
+    transition: 0.3s ease-out;
+    cursor: pointer;
+  }
+
+  .select:hover {
+    background: var(--header-text-hover);
+  }
+
+  .select.active {
+    display: flex;
+    width: 19rem;
+    height: 4.75rem;
+    padding: 0 0.5rem;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+    row-gap: 1.5rem;
+    align-self: stretch;
+    flex-wrap: wrap;
+
+    border-bottom: 2px solid #3dd6b1;
+  }
+
+  .openSelectBtn {
+    display: block;
+  }
+
+  .select.active:hover {
+    background: none;
+  }
+
+  .selectText {
+    display: flex;
+  }
+
+  .selectText p {
+    color: var(--header-text-off);
+    font-family: Noto Sans KR;
+    font-size: 1.25rem;
     font-style: normal;
-    font-weight: 700;
+    font-weight: 500;
     line-height: normal;
     text-transform: capitalize;
+  }
+
+  .contactWrap {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    display: none;
+  }
+
+  .contactWrap p {
+    color: var(--header-text-off);
+    font-family: Noto Sans KR;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+
+  .select.active .minImg {
+    margin-top: 0rem;
+    width: 3rem;
+    height: 3rem;
+  }
+
+  .select.active .contactWrap {
+    display: none;
+  }
+
+  .select.active .selectText p {
+    color: var(--header-text-on);
+    font-family: Noto Sans KR;
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    text-transform: capitalize;
+  }
+
+  .select.active .contactWrap p {
+    color: var(--header-text-on);
+    font-family: Noto Sans KR;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+
+  .projectsContainer {
+    display: flex;
+    padding: 0rem;
+    justify-content: flex-start;
+    align-items: center;
+    border-radius: 0 0.75rem 0.75rem 0;
+    background: #141414;
+    border-left: none;
+    box-shadow: -4px 0px 8px 0px rgba(0, 0, 0, 0.15);
+    position: relative;
+  }
+
+  .cardBtn {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
+    position: absolute;
+    cursor: pointer;
+    transition: opacity 0.3s ease-in-out;
+    z-index: 2;
+  }
+
+  .cardBtn.left {
+    left: 5vw;
+  }
+
+  .cardBtn.right {
+    right: 5vw;
+  }
+
+  /* 페이드 아웃 애니메이션 */
+  .fade-out {
+    opacity: 0;
+  }
+
+  /* 페이드 인 애니메이션 */
+  .fade-in {
+    opacity: 1;
+  }
+
+  .projectsSlider {
+    display: flex; /* 프로젝트 카드들을 가로로 나열 */
+    gap: 0rem;
+    padding: 0rem;
+    transition: transform 0.3s ease-in-out;
+    overflow: hidden;
+  }
+
+  .projectCard {
+    cursor: pointer;
+    display: flex;
+    padding: 1.5rem 2.25rem;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+
+    border-radius: 0.75rem;
+    border-top: 0px;
+    background: #141414;
+    transition: none;
+  }
+
+  .projectCard:hover {
+    position: relative;
+    bottom: 0rem;
+    box-shadow: none;
+  }
+
+  .slide-in {
+    transform: translateX(0);
+  }
+
+  .slide-out-left {
+    transform: translateX(-100%);
+  }
+
+  .slide-out-right {
+    transform: translateX(100%);
+  }
+
+  .projectImg {
+    width: 15.5rem;
+    height: 22rem;
+
+    border-radius: 0.75rem;
+  }
+
+  .projectCard p {
+    width: 15.5rem;
+    height: 3.5625rem;
+
+    overflow-y: scroll;
+    color: #fff;
+    text-overflow: ellipsis;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-transform: capitalize;
+  }
+
+  p::-webkit-scrollbar {
+    width: 0.75rem;
+  }
+
+  #personalProfile .contentsWrap {
+    display: flex;
+    width: 20rem;
+    align-items: flex-start;
+    align-content: flex-start;
+    justify-content: flex-start;
+    gap: 3rem 1.5rem;
+    flex-wrap: wrap;
   }
 }
