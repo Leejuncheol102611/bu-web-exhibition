@@ -199,6 +199,10 @@ main {
   gap: 3.75rem;
 }
 
+main section:first-child {
+  margin-top: 3.75rem;
+}
+
 /*Profile Search page*/
 #personalProfile {
   display: flex;

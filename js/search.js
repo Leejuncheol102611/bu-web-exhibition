@@ -6,6 +6,7 @@ const personalProfile = document.getElementById("personalProfile");
 
 
 const data = [
+    { name: "최인욱", profile: "./profileimg/최인욱.png", main: "./main/최인욱-main.png", sub1: "./sub1/최인욱-sub1.png", sub2: "./sub2/최인욱-sub2.png" },
     { name: "권정연", profile: "./profileimg/권정연.jpg", main: "./main/권정연-main.jpg", sub1: "./sub1/권정연-sub1.jpg", sub2: "./sub2/권정연-sub2.jpg" },
     { name: "김동우", profile: "./profileimg/김동우.jpg", main: "./main/김동우-main.jpg", sub1: "./sub1/김동우-sub1.jpg", sub2: "./sub2/김동우-sub2.jpg" },
     { name: "김민혁", profile: "./profileimg/김민혁.jpg", main: "./main/김민혁-main.jpg", sub1: "./sub1/김민혁-sub1.jpg", sub2: "./sub2/김민혁-sub2.jpg" },

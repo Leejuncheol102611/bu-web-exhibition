@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko-kr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>웹 프로젝트 졸업전시</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="font-family.css" />
+    <script src="./js/header.js"></script>
+  </head>
+  <body>
+    <header>
+      <div class="header_container">
+        <div class="button">
+          <a href="index2.html" class="header_btn">홈</a>
+          <a href="search.html" class="header_btn active">소개</a>
+          <div class="search">
+            <div class="searchBox">
+              <input
+                type="text"
+                name="selected"
+                id="searchInput"
+                placeholder="프로필 검색"
+              />
+              <button id="searchButton">
+                <img src="./icons/search-stroke.svg" alt="search-stroke" />
+              </button>
+            </div>
+            <div id="searchResults" class="autocompleteResults"></div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section id="personalProfile">
+        <h1 class="sectionTitle">Profile</h1>
+      </section>
+    </main>
+  </body>
+</html>
