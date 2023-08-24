@@ -4,6 +4,7 @@ const selectListModal = document.querySelector(".selectListModal");
 const openSelectBtn = document.querySelector(".openSelectBtn");
 const modalContent = document.querySelector(".select.active.default");
 
+
 let isModalOpen = false;
 
 openSelectBtn.addEventListener("click", () => {
@@ -222,15 +223,15 @@ function updateProjectCards(item) {
     const description = card.querySelector("p");
 
     if (index === 0) {
-      mainName.textContent = `${index + 1}체커 - ${item.name} 서비스`;
+      mainName.textContent = `${item.name} 작품 - ${index + 1}`;
       projectImg.src = item.main;
       description.textContent = "작품설명 3줄 작성 작품설명 3줄 작성 작품설명 3줄 작성";
     } else if (index === 1) {
-      mainName.textContent = `${index + 1}체커 - ${item.name} 서비스`;
+      mainName.textContent = `${item.name} 작품 - ${index + 1}`;
       projectImg.src = item.sub1;
       description.textContent = "작품설명 3줄 작성 작품설명 3줄 작성 작품설명 3줄 작성";
     } else if (index === 2) {
-      mainName.textContent = `${index + 1}체커 - ${item.name} 서비스`;
+      mainName.textContent = `${item.name} 작품 - ${index + 1}`;
       projectImg.src = item.sub2;
       description.textContent = "작품설명 3줄 작성 작품설명 3줄 작성 작품설명 3줄 작성";
     }
