@@ -110,3 +110,4 @@ const data = [
       personalProfile.appendChild(profileCard);
     });
   }
+

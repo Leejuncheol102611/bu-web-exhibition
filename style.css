@@ -425,13 +425,8 @@ section {
   background: var(--header-text-hover);
 }
 
-@keyframes selectHover {
-  0% {
-    background: var(#141414);
-  }
-  100% {
-    background: var(--header-text-off);
-  }
+.selectListModal {
+  display: none;
 }
 
 .selectText {
@@ -476,6 +471,10 @@ section {
   gap: 1.5rem;
 
   border-bottom: 2px solid #3dd6b1;
+}
+
+.select.active.default {
+  display: none;
 }
 
 .openSelectBtn {
@@ -839,6 +838,50 @@ p::-webkit-scrollbar {
     background: var(--header-text-hover);
   }
 
+  .selectListModal {
+    display: none;
+    width: 20rem;
+    height: 37.5rem;
+
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0rem;
+
+    overflow-y: scroll;
+    position: absolute;
+    z-index: 2;
+
+    background: #383838;
+  }
+
+  .selectListModal::-webkit-scrollbar {
+    display: none;
+  }
+
+  .selectListModal .select {
+    width: 19rem;
+    transition: 0.3s ease-out;
+  }
+
+  .selectListModal .select.active {
+    display: none;
+    padding: 0.5rem;
+    border-bottom: 2px solid #3dd6b1;
+    background: #141414;
+  }
+
+  .selectListModal .select.active:hover {
+    background: #141414;
+  }
+
+  .selectListModal .select.active .selectText {
+    width: 12.375rem;
+  }
+
+  .select.active.default {
+    display: flex;
+  }
+
   .select.active {
     display: flex;
     width: 19rem;
@@ -874,6 +917,20 @@ p::-webkit-scrollbar {
     font-weight: 500;
     line-height: normal;
     text-transform: capitalize;
+  }
+
+  .openSelectBtn.open {
+    transform: scaleY(-1); /* 버튼 상하반전 */
+    animation: pulse 0.5s alternate infinite; /* 선택한 버튼을 깜박이는 애니메이션 */
+  }
+
+  @keyframes pulse {
+    0% {
+      transform: scaleY(-1);
+    }
+    100% {
+      transform: scaleY(-1) translateY(-0px);
+    }
   }
 
   .contactWrap {
