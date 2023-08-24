@@ -770,9 +770,6 @@ p::-webkit-scrollbar {
   .contact .contactWrap {
     gap: 0.75rem;
   }
-  .contactWrap p {
-    font-size: 0.625rem;
-  }
 
   /*section 컨테이너 *특수*/
 
@@ -947,10 +944,14 @@ p::-webkit-scrollbar {
   .contactWrap p {
     color: var(--header-text-off);
     font-family: Noto Sans KR;
-    font-size: 0.875rem;
+    font-size: 0.625rem;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+  }
+
+  .contact .contactWrap svg path {
+    fill: var(--header-text-off);
   }
 
   .select.active .minImg {

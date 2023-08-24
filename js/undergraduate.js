@@ -346,10 +346,6 @@ function resetSelectAreaWithActiveData() {
   }
 
 
-// 초기에도 모달 내용 업데이트
-const initialActiveData = getDataFromActiveElement();
-updateModalWithData(initialActiveData);
-
 
 // active인 요소에서 데이터 가져오는 함수
 function getDataFromActiveElement() {
@@ -381,3 +377,25 @@ function getDataFromActiveElement() {
       modalMinImg.src = data.minImgSrc;
     }
   }
+
+
+// .select.active.default 요소 업데이트 함수
+function updateDefaultSelectWithData(data) {
+    const defaultSelect = document.querySelector(".select.active.default");
+    if (defaultSelect) {
+      const minImg = defaultSelect.querySelector(".minImg");
+      const selectText = defaultSelect.querySelector(".selectText p");
+  
+      minImg.src = data.minImgSrc;
+      selectText.textContent = data.name;
+    }
+  }
+
+// 초기에도 모달 내용 업데이트
+const initialData = data[0]; // 예시로 첫 번째 데이터를 초기 데이터로 설정
+updateModalContentWithSelectedData(initialData);
+updateDefaultSelectWithData(initialData);
+
+// 이미지 소스도 초기에 설정 **프로필 미니 이미지는 클래스명이 minImg, 데이터는 profile
+const initialMinImg = document.querySelector(".select.active.default .minImg");
+initialMinImg.src = initialData.profile;
