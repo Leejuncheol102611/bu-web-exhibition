@@ -22,5 +22,6 @@
   "bugs": {
     "url": "https://github.com/tkskdldbelfm/booklink/issues"
   },
-  "homepage": "https://github.com/tkskdldbelfm/booklink#readme"
+  "homepage": "https://github.com/tkskdldbelfm/booklink#readme",
+  "devDependencies": {}
 }
