@@ -55,14 +55,14 @@ document.addEventListener('DOMContentLoaded', () => {
         commentsList.innerHTML = '';
         comments.forEach(comment => {
             const li = document.createElement('li');
-            li.textContent = comment.comment;
+            li.textContent = `${comment.nickname}:, ${comment.comment}, 작성일: ${comment.updated}`;
 
             const deleteButton = document.createElement('button');
             deleteButton.textContent = '삭제';
             deleteButton.addEventListener('click', async () => {
                 const deletePassword = prompt('비밀번호를 입력하세요.');
                 if (deletePassword) {
-                    const deleteResponse = await fetch(commentsUrl + `/:${comment.comment_id}`, {
+                    const deleteResponse = await fetch(`${commentsUrl}/${comment.comment_id}`, {
                         method: 'DELETE',
                         headers: {
                             'Content-Type': 'application/json'
@@ -70,7 +70,6 @@ document.addEventListener('DOMContentLoaded', () => {
                         mode: 'cors',
                         body: JSON.stringify({ password: deletePassword })
                     });
-
 
                     if (deleteResponse.ok) {
                         // 댓글 삭제 성공 시 화면 갱신
@@ -86,6 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
             commentsList.appendChild(li);
         });
     }
+
 
     // URL에서 파라미터 가져오는 함수
     //function getParameterByName(name) {
