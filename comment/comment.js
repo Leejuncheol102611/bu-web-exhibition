@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const comments = await response.json();
 
         // 댓글 목록 표시
-        commentsList.innerHTML = '';
+        commentsList.innerHTML;
         comments.forEach(comment => {
             const li = document.createElement('li');
             li.textContent = comment.comment;
