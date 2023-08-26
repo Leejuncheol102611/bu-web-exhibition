@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko-kr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>댓글 기능</title>
+    <link rel="stylesheet" href="comment.css">
+</head>
+
+<body>
+    <h1>댓글 기능</h1>
+    <div class="comments">
+        <h2>댓글 목록</h2>
+        <ul id="commentsList"></ul>
+    </div>
+    <div class="add-comment">
+        <h2>댓글 작성</h2>
+        <form id="commentForm">
+            <input type="text" id="nickname" placeholder="닉네임" required>
+            <input type="password" id="password" placeholder="비밀번호" required>
+            <textarea id="comment" placeholder="댓글 내용" required></textarea>
+            <button type="submit">댓글 작성</button>
+        </form>
+    </div>
+    <script src="comment.js"></script>
+</body>
+
+</html>
