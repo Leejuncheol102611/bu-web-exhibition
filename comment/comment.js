@@ -1,59 +1,81 @@
-// 댓글 목록을 표시하는 함수
-function displayComments(comments) {
-    const commentsList = document.getElementById('commentsList');
-    commentsList.innerHTML = '';
+document.addEventListener('DOMContentLoaded', () => {
+    const commentsList = document.getElementById('comments');
+    const commentForm = document.getElementById('commentForm');
+    const nicknameInput = document.getElementById('nickname');
+    const passwordInput = document.getElementById('password');
+    const commentInput = document.getElementById('comment');
 
-    comments.forEach(comment => {
-        const li = document.createElement('li');
-        li.textContent = `작성자: ${comment.nickname}, 내용: ${comment.comment}`;
-        commentsList.appendChild(li);
-    });
-}
+    // 댓글 작성 폼 제출 처리
+    commentForm.addEventListener('submit', async (event) => {
+        event.preventDefault();
 
-// 페이지 로드 시 댓글 목록을 가져와 표시
-window.addEventListener('load', async () => {
-    try {
-        const response = await fetch('/comments/1'); // 1은 target_id
-        const comments = await response.json();
-        displayComments(comments);
-    } catch (error) {
-        console.error('댓글 목록 가져오기 오류:', error);
-    }
-});
+        const target_id = getParameterByName('id'); // URL에서 id 파라미터 가져오기
+        const nickname = nicknameInput.value;
+        const password = passwordInput.value;
+        const comment = commentInput.value;
 
-// 댓글 작성 폼 제출 처리
-const commentForm = document.getElementById('commentForm');
-commentForm.addEventListener('submit', async (event) => {
-    event.preventDefault();
-
-    const nickname = document.getElementById('nickname').value;
-    const password = document.getElementById('password').value;
-    const comment = document.getElementById('comment').value;
-
-    const data = {
-        target_id: 1, // 1은 target_id
-        nickname,
-        password,
-        comment
-    };
-
-    try {
-        const response = await fetch('/comments', {
+        const response = await fetch('/create-comment', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(data)
+            body: JSON.stringify({ target_id, nickname, password, comment })
         });
 
         if (response.ok) {
-            const newComment = await response.json();
-            displayComments([newComment]); // 새 댓글을 표시
-            commentForm.reset();
+            // 댓글 작성 성공 시 화면 갱신
+            loadComments();
         } else {
+            // 댓글 작성 실패 시 처리
             console.error('댓글 작성 실패');
         }
-    } catch (error) {
-        console.error('댓글 작성 오류:', error);
+    });
+
+    // 댓글 목록 가져오기
+    async function loadComments() {
+        const response = await fetch(`/get-comments?id=${getParameterByName('id')}`);
+        const comments = await response.json();
+
+        // 댓글 목록 표시
+        commentsList.innerHTML = '';
+        comments.forEach(comment => {
+            const li = document.createElement('li');
+            li.textContent = comment.comment;
+
+            const deleteButton = document.createElement('button');
+            deleteButton.textContent = '삭제';
+            deleteButton.addEventListener('click', async () => {
+                const deletePassword = prompt('비밀번호를 입력하세요.');
+                if (deletePassword) {
+                    const deleteResponse = await fetch('/delete-comment', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ comment_id: comment.comment_id, password: deletePassword })
+                    });
+
+                    if (deleteResponse.ok) {
+                        // 댓글 삭제 성공 시 화면 갱신
+                        loadComments();
+                    } else {
+                        // 댓글 삭제 실패 시 처리
+                        console.error('댓글 삭제 실패');
+                    }
+                }
+            });
+
+            li.appendChild(deleteButton);
+            commentsList.appendChild(li);
+        });
     }
-});
+
+    // URL에서 파라미터 가져오는 함수
+    function getParameterByName(name) {
+        const url = new URL(window.location.href);
+        return url.searchParams.get(name);
+    }
+
+    // 초기화: 댓글 목록 불러오기
+    loadComments();
+}); 
