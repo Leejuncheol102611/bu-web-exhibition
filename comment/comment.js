@@ -14,7 +14,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const password = passwordInput.value;
         const comment = commentInput.value;
 
-        const response = await fetch('/comments', {
+        const SERVER_URL = 'https://port-0-bu-exhibition-backend-fq2r52kllqhhlnh.sel3.cloudtype.app';
+
+
+        const response = await fetch('${SERVER_URL}/comments', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -31,9 +34,11 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+
+
     // 댓글 목록 가져오기
     async function loadComments() {
-        const response = await fetch('/comments');
+        const response = await fetch('${SERVER_URL}/comments');
         const comments = await response.json();
 
         // 댓글 목록 표시
@@ -47,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
             deleteButton.addEventListener('click', async () => {
                 const deletePassword = prompt('비밀번호를 입력하세요.');
                 if (deletePassword) {
-                    const deleteResponse = await fetch(`/comments/${comment.comment_id}`, {
+                    const deleteResponse = await fetch(`${SERVER_URL}/comments/${comment.comment_id}`, {
                         method: 'DELETE',
                         headers: {
                             'Content-Type': 'application/json'
