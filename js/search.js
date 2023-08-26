@@ -292,11 +292,9 @@ window.addEventListener("load", () => {
 
     profileCard.addEventListener("click", function () {
       // 클릭한 카드의 이름(name)을 가져옴
-      const projectName = this.querySelector(".profileCardName").textContent;
-
       // profile.html로 이동하면서 프로젝트 이름을 전달
       window.location.href = `profileAll.html?name=${encodeURIComponent(
-        projectName
+        inputid
       )}`;
     });
   });
