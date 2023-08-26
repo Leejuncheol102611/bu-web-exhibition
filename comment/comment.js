@@ -31,10 +31,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-
     // 댓글 목록 가져오기
     async function loadComments() {
-        const response = await fetch('/comments');
+        const response = await fetch(`/get-comments?id=${getParameterByName('id')}`);
         const comments = await response.json();
 
         // 댓글 목록 표시
@@ -48,11 +47,12 @@ document.addEventListener('DOMContentLoaded', () => {
             deleteButton.addEventListener('click', async () => {
                 const deletePassword = prompt('비밀번호를 입력하세요.');
                 if (deletePassword) {
-                    const deleteResponse = await fetch('/comments/:comment_id', {
-                        method: 'DELETE',
+                    const deleteResponse = await fetch('/delete-comment', {
+                        method: 'POST',
                         headers: {
                             'Content-Type': 'application/json'
                         },
+                        body: JSON.stringify({ comment_id: comment.comment_id, password: deletePassword })
                     });
 
                     if (deleteResponse.ok) {
@@ -78,4 +78,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 초기화: 댓글 목록 불러오기
     loadComments();
-}); 
+});
