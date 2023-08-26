@@ -187,7 +187,6 @@ searchInput.addEventListener("click", function (event) {
     handleInput();
   }
 });
-const inputid = data.filter.(item => item.id === inputid);
 
 searchButton.addEventListener("click", () => {
   const inputName = searchInput.value.trim();
