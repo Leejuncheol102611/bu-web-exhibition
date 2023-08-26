@@ -1,371 +1,369 @@
 <!DOCTYPE html>
 <html lang="ko-kr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>웹 프로젝트 졸업전시</title>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="font-family.css" />
-    <script src="./js/header.js"></script>
-  </head>
-  <body>
-    <header>
-      <div class="header_container">
-        <div class="button">
-          <a href="index2.html" class="header_btn">홈</a>
-          <a href="#" class="header_btn active">소개</a>
-          <div class="search">
-            <div class="searchBox">
-              <input
-                type="text"
-                name="selected"
-                id="searchInput"
-                placeholder="프로필 검색"
-              />
-              <button id="searchButton">
-                <img src="./icons/search-stroke.svg" alt="search-stroke" />
-              </button>
-            </div>
-            <div id="searchResults" class="autocompleteResults"></div>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>웹 프로젝트 졸업전시</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="font-family.css" />
+  <script src="./js/header.js"></script>
+</head>
+
+<body>
+  <header>
+    <div class="header_container">
+      <div class="button">
+        <a href="index2.html" class="header_btn">홈</a>
+        <a href="#" class="header_btn active">소개</a>
+        <div class="search">
+          <div class="searchBox">
+            <input type="text" name="selected" id="searchInput" placeholder="프로필 검색" />
+            <button id="searchButton">
+              <img src="./icons/search-stroke.svg" alt="search-stroke" />
+            </button>
           </div>
+          <div id="searchResults" class="autocompleteResults"></div>
         </div>
       </div>
-    </header>
-    <main>
-      <section id="personalProfile">
-        <h1 class="sectionTitle">Profile</h1>
-        <div class="contentsWrap"></div>
-      </section>
-    </main>
+    </div>
+  </header>
+  <main>
+    <section id="personalProfile">
+      <h1 class="sectionTitle">Profile</h1>
+      <div class="contentsWrap"></div>
+    </section>
+  </main>
 
-    <script>
-      const personalProfile = document.querySelector(
-        "#personalProfile .contentsWrap"
-      );
-      const searchInput = document.getElementById("searchInput");
-      const searchResults = document.getElementById("searchResults");
-      const searchButton = document.getElementById("searchButton");
-      const searchOutput = document.querySelector(
-        "#personalProfile .contentsWrap"
-      );
+  <script>
+    const personalProfile = document.querySelector(
+      "#personalProfile .contentsWrap"
+    );
+    const searchInput = document.getElementById("searchInput");
+    const searchResults = document.getElementById("searchResults");
+    const searchButton = document.getElementById("searchButton");
+    const searchOutput = document.querySelector(
+      "#personalProfile .contentsWrap"
+    );
 
-      const data = [
-        {
-          name: "최인욱",
-          profile: "./profileimg/최인욱.png",
-          main: "./main/최인욱-main.png",
-          sub1: "./sub1/최인욱-sub1.png",
-          sub2: "./sub2/최인욱-sub2.png",
-        },
-        {
-          name: "권정연",
-          profile: "./profileimg/권정연.jpg",
-          main: "./main/권정연-main.jpg",
-          sub1: "./sub1/권정연-sub1.jpg",
-          sub2: "./sub2/권정연-sub2.jpg",
-        },
-        {
-          name: "김동우",
-          profile: "./profileimg/김동우.jpg",
-          main: "./main/김동우-main.jpg",
-          sub1: "./sub1/김동우-sub1.jpg",
-          sub2: "./sub2/김동우-sub2.jpg",
-        },
-        {
-          name: "김민혁",
-          profile: "./profileimg/김민혁.jpg",
-          main: "./main/김민혁-main.jpg",
-          sub1: "./sub1/김민혁-sub1.jpg",
-          sub2: "./sub2/김민혁-sub2.jpg",
-        },
-        {
-          name: "김주희",
-          profile: "./profileimg/김주희.jpg",
-          main: "./main/김주희-main.jpg",
-          sub1: "./sub1/김주희-sub1.jpg",
-          sub2: "./sub2/김주희-sub2.jpg",
-        },
-        {
-          name: "방민수",
-          profile: "./profileimg/방민수.jpg",
-          main: "./main/방민수-main.jpg",
-          sub1: "./sub1/방민수-sub1.jpg",
-          sub2: "./sub2/방민수-sub2.jpg",
-        },
-        {
-          name: "백홍은",
-          profile: "./profileimg/백홍은.jpg",
-          main: "./main/백홍은-main.jpg",
-          sub1: "./sub1/백홍은-sub1.jpg",
-          sub2: "./sub2/백홍은-sub2.jpg",
-        },
-        {
-          name: "소리엘",
-          profile: "./profileimg/소리엘.jpg",
-          main: "./main/소리엘-main.jpg",
-          sub1: "./sub1/소리엘-sub1.jpg",
-          sub2: "./sub2/소리엘-sub2.jpg",
-        },
-        {
-          name: "손경주",
-          profile: "./profileimg/손경주.jpg",
-          main: "./main/손경주-main.jpg",
-          sub1: "./sub1/손경주-sub1.jpg",
-          sub2: "./sub2/손경주-sub2.jpg",
-        },
-        {
-          name: "여초교",
-          profile: "./profileimg/여초교.jpg",
-          main: "./main/여초교-main.jpg",
-          sub1: "./sub1/여초교-sub1.jpg",
-          sub2: "./sub2/여초교-sub2.jpg",
-        },
-        {
-          name: "오성우",
-          profile: "./profileimg/오성우.jpg",
-          main: "./main/오성우-main.jpg",
-          sub1: "./sub1/오성우-sub1.jpg",
-          sub2: "./sub2/오성우-sub2.jpg",
-        },
-        {
-          name: "오수빈",
-          profile: "./profileimg/오수빈.jpg",
-          main: "./main/오수빈-main.jpg",
-          sub1: "./sub1/오수빈-sub1.jpg",
-          sub2: "./sub2/오수빈-sub2.jpg",
-        },
-        {
-          name: "이광원",
-          profile: "./profileimg/이광원.jpg",
-          main: "./main/이광원-main.jpg",
-          sub1: "./sub1/이광원-sub1.jpg",
-          sub2: "./sub2/이광원-sub2.jpg",
-        },
-        {
-          name: "이다빈",
-          profile: "./profileimg/이다빈.jpg",
-          main: "./main/이다빈-main.jpg",
-          sub1: "./sub1/이다빈-sub1.jpg",
-          sub2: "./sub2/이다빈-sub2.jpg",
-        },
-        {
-          name: "이다연",
-          profile: "./profileimg/이다연.jpg",
-          main: "./main/이다연-main.jpg",
-          sub1: "./sub1/이다연-sub1.jpg",
-          sub2: "./sub2/이다연-sub2.jpg",
-        },
-        {
-          name: "이주언",
-          profile: "./profileimg/이주언.jpg",
-          main: "./main/이주언-main.jpg",
-          sub1: "./sub1/이주언-sub1.jpg",
-          sub2: "./sub2/이주언-sub2.jpg",
-        },
-        {
-          name: "정미정",
-          profile: "./profileimg/정미정.jpg",
-          main: "./main/정미정-main.jpg",
-          sub1: "./sub1/정미정-sub1.jpg",
-          sub2: "./sub2/정미정-sub2.jpg",
-        },
-        {
-          name: "조진호",
-          profile: "./profileimg/조진호.jpg",
-          main: "./main/조진호-main.jpg",
-          sub1: "./sub1/조진호-sub1.jpg",
-          sub2: "./sub2/조진호-sub2.jpg",
-        },
-        {
-          name: "주혜원",
-          profile: "./profileimg/주혜원.jpg",
-          main: "./main/주혜원-main.jpg",
-          sub1: "./sub1/주혜원-sub1.jpg",
-          sub2: "./sub2/주혜원-sub2.jpg",
-        },
-        {
-          name: "최지수",
-          profile: "./profileimg/최지수.jpg",
-          main: "./main/최지수-main.jpg",
-          sub1: "./sub1/최지수-sub1.jpg",
-          sub2: "./sub2/최지수-sub2.jpg",
-        },
-        // ... 미리 정의된 데이터를 추가하세요
-      ];
+    const data = [
+      {
+        name: "최인욱",
+        profile: "./profileimg/최인욱.png",
+        main: "./main/최인욱-main.png",
+        sub1: "./sub1/최인욱-sub1.png",
+        sub2: "./sub2/최인욱-sub2.png",
+      },
+      {
+        name: "권정연",
+        profile: "./profileimg/권정연.jpg",
+        main: "./main/권정연-main.jpg",
+        sub1: "./sub1/권정연-sub1.jpg",
+        sub2: "./sub2/권정연-sub2.jpg",
+      },
+      {
+        name: "김동우",
+        profile: "./profileimg/김동우.jpg",
+        main: "./main/김동우-main.jpg",
+        sub1: "./sub1/김동우-sub1.jpg",
+        sub2: "./sub2/김동우-sub2.jpg",
+      },
+      {
+        name: "김민혁",
+        profile: "./profileimg/김민혁.jpg",
+        main: "./main/김민혁-main.jpg",
+        sub1: "./sub1/김민혁-sub1.jpg",
+        sub2: "./sub2/김민혁-sub2.jpg",
+      },
+      {
+        name: "김주희",
+        profile: "./profileimg/김주희.jpg",
+        main: "./main/김주희-main.jpg",
+        sub1: "./sub1/김주희-sub1.jpg",
+        sub2: "./sub2/김주희-sub2.jpg",
+      },
+      {
+        name: "방민수",
+        profile: "./profileimg/방민수.jpg",
+        main: "./main/방민수-main.jpg",
+        sub1: "./sub1/방민수-sub1.jpg",
+        sub2: "./sub2/방민수-sub2.jpg",
+      },
+      {
+        name: "백홍은",
+        profile: "./profileimg/백홍은.jpg",
+        main: "./main/백홍은-main.jpg",
+        sub1: "./sub1/백홍은-sub1.jpg",
+        sub2: "./sub2/백홍은-sub2.jpg",
+      },
+      {
+        name: "소리엘",
+        profile: "./profileimg/소리엘.jpg",
+        main: "./main/소리엘-main.jpg",
+        sub1: "./sub1/소리엘-sub1.jpg",
+        sub2: "./sub2/소리엘-sub2.jpg",
+      },
+      {
+        name: "손경주",
+        profile: "./profileimg/손경주.jpg",
+        main: "./main/손경주-main.jpg",
+        sub1: "./sub1/손경주-sub1.jpg",
+        sub2: "./sub2/손경주-sub2.jpg",
+      },
+      {
+        name: "여초교",
+        profile: "./profileimg/여초교.jpg",
+        main: "./main/여초교-main.jpg",
+        sub1: "./sub1/여초교-sub1.jpg",
+        sub2: "./sub2/여초교-sub2.jpg",
+      },
+      {
+        name: "오성우",
+        profile: "./profileimg/오성우.jpg",
+        main: "./main/오성우-main.jpg",
+        sub1: "./sub1/오성우-sub1.jpg",
+        sub2: "./sub2/오성우-sub2.jpg",
+      },
+      {
+        name: "오수빈",
+        profile: "./profileimg/오수빈.jpg",
+        main: "./main/오수빈-main.jpg",
+        sub1: "./sub1/오수빈-sub1.jpg",
+        sub2: "./sub2/오수빈-sub2.jpg",
+      },
+      {
+        name: "이광원",
+        profile: "./profileimg/이광원.jpg",
+        main: "./main/이광원-main.jpg",
+        sub1: "./sub1/이광원-sub1.jpg",
+        sub2: "./sub2/이광원-sub2.jpg",
+      },
+      {
+        name: "이다빈",
+        profile: "./profileimg/이다빈.jpg",
+        main: "./main/이다빈-main.jpg",
+        sub1: "./sub1/이다빈-sub1.jpg",
+        sub2: "./sub2/이다빈-sub2.jpg",
+      },
+      {
+        name: "이다연",
+        profile: "./profileimg/이다연.jpg",
+        main: "./main/이다연-main.jpg",
+        sub1: "./sub1/이다연-sub1.jpg",
+        sub2: "./sub2/이다연-sub2.jpg",
+      },
+      {
+        name: "이주언",
+        profile: "./profileimg/이주언.jpg",
+        main: "./main/이주언-main.jpg",
+        sub1: "./sub1/이주언-sub1.jpg",
+        sub2: "./sub2/이주언-sub2.jpg",
+      },
+      {
+        name: "정미정",
+        profile: "./profileimg/정미정.jpg",
+        main: "./main/정미정-main.jpg",
+        sub1: "./sub1/정미정-sub1.jpg",
+        sub2: "./sub2/정미정-sub2.jpg",
+      },
+      {
+        name: "조진호",
+        profile: "./profileimg/조진호.jpg",
+        main: "./main/조진호-main.jpg",
+        sub1: "./sub1/조진호-sub1.jpg",
+        sub2: "./sub2/조진호-sub2.jpg",
+      },
+      {
+        name: "주혜원",
+        profile: "./profileimg/주혜원.jpg",
+        main: "./main/주혜원-main.jpg",
+        sub1: "./sub1/주혜원-sub1.jpg",
+        sub2: "./sub2/주혜원-sub2.jpg",
+      },
+      {
+        name: "최지수",
+        profile: "./profileimg/최지수.jpg",
+        main: "./main/최지수-main.jpg",
+        sub1: "./sub1/최지수-sub1.jpg",
+        sub2: "./sub2/최지수-sub2.jpg",
+      },
+      // ... 미리 정의된 데이터를 추가하세요
+    ];
 
-      const queryString = window.location.search;
-      const urlParams = new URLSearchParams(queryString);
-      const searchName = urlParams.get("name");
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const searchName = urlParams.get("name");
 
-      document.addEventListener("click", function (event) {
-        if (
-          !searchResults.contains(event.target) &&
-          event.target !== searchInput
-        ) {
-          searchResults.innerHTML = "";
-        }
-      });
-
-      searchInput.addEventListener("click", function (event) {
-        if (searchResults.innerHTML.trim() === "") {
-          handleInput();
-        }
-      });
-
-      if (searchName) {
-        // URL에서 가져온 검색어를 디코딩하여 input에 채워넣음
-        searchInput.value = decodeURIComponent(searchName);
-
-        const matchedData = data.filter((item) => item.name === searchName);
-
-        if (matchedData.length > 0) {
-          displayProfiles(matchedData);
-        } else {
-          searchOutput.innerHTML = "검색 결과가 없습니다.";
-        }
-      }
-
-      searchButton.addEventListener("click", showProfiles);
-
-      function showProfiles() {
-        const inputName = searchInput.value.trim();
-        const matchedData = data.filter((item) => item.name === inputName);
-
-        if (matchedData.length > 0) {
-          // 검색어를 encodeURIComponent를 사용하여 URL에 인코딩하여 전달
-          const encodedName = encodeURIComponent(inputName);
-          window.location.href = `search.html?name=${encodedName}`;
-        } else {
-          searchOutput.innerHTML = "검색 결과가 없습니다.";
-        }
-      }
-
-      searchInput.addEventListener("input", handleInput);
-
-      function handleInput() {
-        const searchTerm = searchInput.value.trim().toLowerCase();
-        const matchedData = data.filter((item) =>
-          item.name.toLowerCase().includes(searchTerm)
-        );
-
-        displayAutocomplete(matchedData);
-      }
-
-      function disassembleKorean(text) {
-        const jasoArray = [];
-
-        for (let i = 0; i < text.length; i++) {
-          const charCode = text.charCodeAt(i);
-
-          if (charCode >= 0xac00 && charCode <= 0xd7a3) {
-            const offset = charCode - 0xac00;
-            const lead = 0x1100 + Math.floor(offset / 588);
-            const vowel = 0x1161 + Math.floor((offset % 588) / 28);
-            const tail = 0x11a7 + (offset % 28);
-            jasoArray.push(String.fromCharCode(lead));
-            jasoArray.push(String.fromCharCode(vowel));
-            if (tail !== 0x11a7) {
-              jasoArray.push(String.fromCharCode(tail));
-            }
-          } else {
-            jasoArray.push(text[i]);
-          }
-        }
-
-        return jasoArray.join("");
-      }
-
-      // 검색어 입력 시 검색 결과를 표시하는 함수
-      function displaySearchResults(searchTerm) {
-        personalProfile.innerHTML = ""; // 기존 프로필 카드 삭제
-        searchResults.innerHTML = ""; // 기존 검색 결과 삭제
-
-        const disassembledSearchTerm =
-          disassembleKorean(searchTerm).toLowerCase();
-        const matchedData = data.filter((item) =>
-          disassembleKorean(item.name)
-            .toLowerCase()
-            .includes(disassembledSearchTerm)
-        );
-
-        if (matchedData.length > 0) {
-          displayProfiles(matchedData);
-        } else {
-          searchOutput.textContent = "검색 결과가 없습니다.";
-        }
-      }
-
-      // 검색어 입력란의 값이 변경될 때마다 검색 결과 표시
-      searchInput.addEventListener("input", () => {
-        const searchTerm = searchInput.value.trim();
-        displaySearchResults(searchTerm);
-      });
-
-      // 검색 버튼 클릭 시 검색 결과 표시
-      searchButton.addEventListener("click", () => {
-        const inputName = searchInput.value.trim();
-        displaySearchResults(inputName);
-      });
-
-      // 모든 프로필 데이터를 personalProfile에 표시
-      displayAllProfiles();
-
-      function displayAutocomplete(matchedData) {
+    document.addEventListener("click", function (event) {
+      if (
+        !searchResults.contains(event.target) &&
+        event.target !== searchInput
+      ) {
         searchResults.innerHTML = "";
+      }
+    });
 
-        if (matchedData.length > 0) {
-          const autocompleteList = document.createElement("ul");
-          autocompleteList.classList.add("autocompleteList");
+    searchInput.addEventListener("click", function (event) {
+      if (searchResults.innerHTML.trim() === "") {
+        handleInput();
+      }
+    });
 
-          matchedData.forEach((item) => {
-            const listItem = document.createElement("li");
-            listItem.textContent = item.name;
+    if (searchName) {
+      // URL에서 가져온 검색어를 디코딩하여 input에 채워넣음
+      searchInput.value = decodeURIComponent(searchName);
 
-            listItem.addEventListener("click", () => {
-              searchInput.value = item.name;
-              searchResults.innerHTML = "";
-              showProfiles();
-            });
+      const matchedData = data.filter((item) => item.name === searchName);
 
-            autocompleteList.appendChild(listItem);
+      if (matchedData.length > 0) {
+        displayProfiles(matchedData);
+      } else {
+        searchOutput.innerHTML = "검색 결과가 없습니다.";
+      }
+    }
+
+    searchButton.addEventListener("click", showProfiles);
+
+    function showProfiles() {
+      const inputName = searchInput.value.trim();
+      const matchedData = data.filter((item) => item.name === inputName);
+
+      if (matchedData.length > 0) {
+        // 검색어를 encodeURIComponent를 사용하여 URL에 인코딩하여 전달
+        const encodedName = encodeURIComponent(inputName);
+        window.location.href = `search.html?name=${encodedName}`;
+      } else {
+        searchOutput.innerHTML = "검색 결과가 없습니다.";
+      }
+    }
+
+    searchInput.addEventListener("input", handleInput);
+
+    function handleInput() {
+      const searchTerm = searchInput.value.trim().toLowerCase();
+      const matchedData = data.filter((item) =>
+        item.name.toLowerCase().includes(searchTerm)
+      );
+
+      displayAutocomplete(matchedData);
+    }
+
+    function disassembleKorean(text) {
+      const jasoArray = [];
+
+      for (let i = 0; i < text.length; i++) {
+        const charCode = text.charCodeAt(i);
+
+        if (charCode >= 0xac00 && charCode <= 0xd7a3) {
+          const offset = charCode - 0xac00;
+          const lead = 0x1100 + Math.floor(offset / 588);
+          const vowel = 0x1161 + Math.floor((offset % 588) / 28);
+          const tail = 0x11a7 + (offset % 28);
+          jasoArray.push(String.fromCharCode(lead));
+          jasoArray.push(String.fromCharCode(vowel));
+          if (tail !== 0x11a7) {
+            jasoArray.push(String.fromCharCode(tail));
+          }
+        } else {
+          jasoArray.push(text[i]);
+        }
+      }
+
+      return jasoArray.join("");
+    }
+
+    // 검색어 입력 시 검색 결과를 표시하는 함수
+    function displaySearchResults(searchTerm) {
+      personalProfile.innerHTML = ""; // 기존 프로필 카드 삭제
+      searchResults.innerHTML = ""; // 기존 검색 결과 삭제
+
+      const disassembledSearchTerm =
+        disassembleKorean(searchTerm).toLowerCase();
+      const matchedData = data.filter((item) =>
+        disassembleKorean(item.name)
+          .toLowerCase()
+          .includes(disassembledSearchTerm)
+      );
+
+      if (matchedData.length > 0) {
+        displayProfiles(matchedData);
+      } else {
+        searchOutput.textContent = "검색 결과가 없습니다.";
+      }
+    }
+
+    // 검색어 입력란의 값이 변경될 때마다 검색 결과 표시
+    searchInput.addEventListener("input", () => {
+      const searchTerm = searchInput.value.trim();
+      displaySearchResults(searchTerm);
+    });
+
+    // 검색 버튼 클릭 시 검색 결과 표시
+    searchButton.addEventListener("click", () => {
+      const inputName = searchInput.value.trim();
+      displaySearchResults(inputName);
+    });
+
+    // 모든 프로필 데이터를 personalProfile에 표시
+    displayAllProfiles();
+
+    function displayAutocomplete(matchedData) {
+      searchResults.innerHTML = "";
+
+      if (matchedData.length > 0) {
+        const autocompleteList = document.createElement("ul");
+        autocompleteList.classList.add("autocompleteList");
+
+        matchedData.forEach((item) => {
+          const listItem = document.createElement("li");
+          listItem.textContent = item.name;
+
+          listItem.addEventListener("click", () => {
+            searchInput.value = item.name;
+            searchResults.innerHTML = "";
+            showProfiles();
           });
 
-          searchResults.appendChild(autocompleteList);
-        }
-      }
-
-      function showProfiles() {
-        const inputName = searchInput.value.trim();
-        const matchedData = data.filter((item) => item.name === inputName);
-
-        personalProfile.innerHTML = "";
-
-        if (matchedData.length > 0) {
-          displayProfiles(matchedData);
-        } else {
-          searchOutput.innerHTML = "검색 결과가 없습니다.";
-        }
-      }
-
-      function displayProfiles(profileData) {
-        profileData.forEach((profile) => {
-          const profileCard = document.createElement("div");
-          profileCard.classList.add("profileCard");
-
-          const profileImg = document.createElement("img");
-          profileImg.src = profile.profile;
-          profileImg.alt = profile.name;
-          profileImg.classList.add("profileImg");
-
-          const profileName = document.createElement("p");
-          profileName.textContent = profile.name;
-          profileName.classList.add("profileCardName");
-
-          profileCard.appendChild(profileImg);
-          profileCard.appendChild(profileName);
-          personalProfile.appendChild(profileCard);
+          autocompleteList.appendChild(listItem);
         });
+
+        searchResults.appendChild(autocompleteList);
       }
-    </script>
-  </body>
+    }
+
+    function showProfiles() {
+      const inputName = searchInput.value.trim();
+      const matchedData = data.filter((item) => item.name === inputName);
+
+      personalProfile.innerHTML = "";
+
+      if (matchedData.length > 0) {
+        displayProfiles(matchedData);
+      } else {
+        searchOutput.innerHTML = "검색 결과가 없습니다.";
+      }
+    }
+
+    function displayProfiles(profileData) {
+      profileData.forEach((profile) => {
+        const profileCard = document.createElement("div");
+        profileCard.classList.add("profileCard");
+
+        const profileImg = document.createElement("img");
+        profileImg.src = profile.profile;
+        profileImg.alt = profile.name;
+        profileImg.classList.add("profileImg");
+
+        const profileName = document.createElement("p");
+        profileName.textContent = profile.name;
+        profileName.classList.add("profileCardName");
+
+        profileCard.appendChild(profileImg);
+        profileCard.appendChild(profileName);
+        personalProfile.appendChild(profileCard);
+      });
+    }
+  </script>
+</body>
+
 </html>
