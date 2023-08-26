@@ -29,6 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
             headers: {
                 'Content-Type': 'application/json'
             },
+            mode: 'cors',
             body: JSON.stringify({ target_id, nickname, password, comment })
         });
 
@@ -64,6 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         headers: {
                             'Content-Type': 'application/json'
                         },
+                        mode: 'cors',
                         body: JSON.stringify({ password: deletePassword })
                     });
 
