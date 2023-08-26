@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const nicknameInput = document.getElementById('nickname');
     const passwordInput = document.getElementById('password');
     const commentInput = document.getElementById('comment');
+    const SERVER_URL = 'https://port-0-bu-exhibition-backend-fq2r52kllqhhlnh.sel3.cloudtype.app';
 
     // 댓글 작성 폼 제출 처리
     commentForm.addEventListener('submit', async (event) => {
@@ -14,7 +15,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const password = passwordInput.value;
         const comment = commentInput.value;
 
-        const SERVER_URL = 'https://port-0-bu-exhibition-backend-fq2r52kllqhhlnh.sel3.cloudtype.app';
 
 
         const response = await fetch('${SERVER_URL}/comments', {
