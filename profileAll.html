@@ -16,7 +16,8 @@
     <div class="header_container">
       <div class="button">
         <a href="index2.html" class="header_btn">홈</a>
-        <a href="search.html" class="header_btn active">소개</a>
+        <a href="./comment/comment.html" class="header_btn active">댓글</a>
+        <a href="search.html" class="header_btn">소개</a>
         <div class="search">
           <div class="searchBox">
             <input type="text" name="selected" id="searchInput" placeholder="프로필 검색" />
@@ -33,24 +34,6 @@
   <main>
     <section id="profileAll">
       <h1 class="sectionTitle">Profile</h1>
-    </section>
-    <section id="commentarea">
-
-      <h1>댓글 기능</h1>
-      <div class="comments">
-        <h2>댓글 목록</h2>
-        <ul id="commentsList"></ul>
-      </div>
-      <div class="add-comment">
-        <h2>댓글 작성</h2>
-        <form id="commentForm">
-          <input type="text" id="nickname" placeholder="닉네임" required>
-          <input type="password" id="password" placeholder="비밀번호" required>
-          <textarea id="comment" placeholder="댓글 내용" required></textarea>
-          <button type="submit">댓글 작성</button>
-        </form>
-      </div>
-
     </section>
   </main>
   <script src="./comment/comment.js"></script>

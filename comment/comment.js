@@ -12,12 +12,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const nicknameInput = document.getElementById('nickname');
     const passwordInput = document.getElementById('password');
     const commentInput = document.getElementById('comment');
-
+    const targetIdInput = document.getElementById('target_id');
     // 댓글 작성 폼 제출 처리
     commentForm.addEventListener('submit', async (event) => {
         event.preventDefault();
 
-        const target_id = getParameterByName('id'); // URL에서 id 파라미터 가져오기
+        const target_id = targetIdInput.value; //임시
+
+        //const target_id = getParameterByName('id'); // URL에서 id 파라미터 가져오기
         const nickname = nicknameInput.value;
         const password = passwordInput.value;
         const comment = commentInput.value;
@@ -85,10 +87,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // URL에서 파라미터 가져오는 함수
-    function getParameterByName(name) {
-        const url = new URL(window.location.href);
-        return url.searchParams.get(name);
-    }
+    //function getParameterByName(name) {
+    //    const url = new URL(window.location.href);
+    //    return url.searchParams.get(name);
+    //}
 
     // 초기화: 댓글 목록 불러오기
     loadComments();
