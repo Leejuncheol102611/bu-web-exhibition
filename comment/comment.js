@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const password = passwordInput.value;
         const comment = commentInput.value;
 
-        const response = await fetch('/create-comment', {
+        const response = await fetch('/comments', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
