@@ -18,15 +18,15 @@ jobs:
         uses: cloudtype-github-actions/deploy@v1
         with:
           token: ${{ secrets.CLOUDTYPE_TOKEN }}
-          project: kakd1313/buwebdesign-exhibition
+          project: kakd1313/bu-web-exhibition
           stage: main
           yaml: |
-            name: bu-design-exhibition
+            name: bu-web-exhibition
             app: web
             options:
               docbase: /
               spa: false
-              nodeversion: "18"
+              nodeversion: "16"
               indexpage: index2.html
             context:
               git:
