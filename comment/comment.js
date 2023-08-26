@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
             deleteButton.addEventListener('click', async () => {
                 const deletePassword = prompt('비밀번호를 입력하세요.');
                 if (deletePassword) {
-                    const deleteResponse = await fetch(`commentsUrl/comments/${comment.comment_id}`, {
+                    const deleteResponse = await fetch(commentsUrl + `/${comment.comment_id}`, {
                         method: 'DELETE',
                         headers: {
                             'Content-Type': 'application/json'
@@ -70,6 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         mode: 'cors',
                         body: JSON.stringify({ password: deletePassword })
                     });
+
 
                     if (deleteResponse.ok) {
                         // 댓글 삭제 성공 시 화면 갱신
