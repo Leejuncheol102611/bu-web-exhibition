@@ -7,7 +7,7 @@ console.log(commentsUrl);
 
 
 document.addEventListener('DOMContentLoaded', () => {
-    const commentsList = document.getElementById('comments');
+    const commentsList = document.getElementById('commentsList');
     const commentForm = document.getElementById('commentForm');
     const nicknameInput = document.getElementById('nickname');
     const passwordInput = document.getElementById('password');
