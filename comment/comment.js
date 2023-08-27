@@ -45,16 +45,30 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 
-    // 댓글 목록 가져오기
+    // 댓글 목록 가져오기 및 HTML 생성
     async function loadComments() {
         const response = await fetch(commentsUrl);
         const comments = await response.json();
 
-        // 댓글 목록 표시
-        commentsList.innerHTML = '';
+        commentsList.innerHTML = ''; // 이전 댓글 목록 삭제
+
         comments.forEach(comment => {
-            const li = document.createElement('li');
-            li.textContent = `${comment.nickname}: ${comment.comment} // 작성일: ${comment.updated}`;
+            const commentContainer = document.createElement('div');
+            commentContainer.classList.add('comment-container');
+
+            const ul = document.createElement('ul');
+
+            const nicknameLi = document.createElement('li');
+            const nicknameText = document.createTextNode(comment.nickname);
+            nicknameLi.appendChild(nicknameText);
+
+            const updatedLi = document.createElement('li');
+            const updatedText = document.createElement('samp');
+            updatedText.textContent = comment.updated;
+            updatedLi.appendChild(updatedText);
+
+            const commentLi = document.createElement('li');
+            commentLi.textContent = comment.comment;
 
             const deleteButton = document.createElement('button');
             deleteButton.textContent = '삭제';
@@ -71,17 +85,20 @@ document.addEventListener('DOMContentLoaded', () => {
                     });
 
                     if (deleteResponse.ok) {
-                        // 댓글 삭제 성공 시 화면 갱신
-                        loadComments();
+                        loadComments(); // 댓글 삭제 성공 시 화면 갱신
                     } else {
-                        // 댓글 삭제 실패 시 처리
                         console.error('댓글 삭제 실패');
                     }
                 }
             });
 
-            li.appendChild(deleteButton);
-            commentsList.appendChild(li);
+            ul.appendChild(nicknameLi);
+            ul.appendChild(updatedLi);
+            ul.appendChild(commentLi);
+            ul.appendChild(deleteButton);
+
+            commentContainer.appendChild(ul);
+            commentsList.appendChild(commentContainer);
         });
     }
 
