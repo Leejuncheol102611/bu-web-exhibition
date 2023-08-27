@@ -45,7 +45,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 
-
     // 댓글 목록 가져오기
     async function loadComments() {
         const response = await fetch(commentsUrl);
@@ -55,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
         commentsList.innerHTML = '';
         comments.forEach(comment => {
             const li = document.createElement('li');
-            li.textContent = `${comment.nickname}:, ${comment.comment}, 작성일: ${comment.updated}`;
+            li.textContent = `${comment.nickname}: ${comment.comment} // 작성일: ${comment.updated}`;
 
             const deleteButton = document.createElement('button');
             deleteButton.textContent = '삭제';
