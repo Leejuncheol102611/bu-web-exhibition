@@ -65,6 +65,8 @@ document.addEventListener('DOMContentLoaded', () => {
             mainText.appendChild(samp);
             mainLi.appendChild(mainText);
 
+            ul.appendChild(mainLi);
+
             const deleteButton = document.createElement('button');
             deleteButton.textContent = '삭제하기';
             deleteButton.addEventListener('click', async () => {
@@ -89,10 +91,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const commentLi = document.createElement('li');
             commentLi.textContent = comment.comment;
-
-            ul.appendChild(mainLi);
-            ul.appendChild(deleteButton);
             ul.appendChild(commentLi);
+
+            ul.appendChild(deleteButton);
 
             commentContainer.appendChild(ul);
             commentsList.appendChild(commentContainer);
