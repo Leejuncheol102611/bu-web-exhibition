@@ -209,6 +209,7 @@ main section:first-child {
   flex-direction: column;
   gap: 3.75rem;
 }
+
 .contentsWrap {
   display: flex;
   justify-content: center;
@@ -276,6 +277,7 @@ h1 {
 .bold {
   font-weight: 700;
 }
+
 .medium {
   font-weight: 500;
 }
@@ -306,6 +308,7 @@ section {
   border-top: 1px solid #3dd6b1;
   background: #141414;
 }
+
 .character {
   color: #fff;
   font-family: Inter;
@@ -336,6 +339,7 @@ section {
   justify-content: space-between;
   align-items: flex-start;
 }
+
 .history {
   display: flex;
   flex-direction: column;
@@ -538,7 +542,8 @@ section {
 }
 
 .projectsSlider {
-  display: flex; /* 프로젝트 카드들을 가로로 나열 */
+  display: flex;
+  /* 프로젝트 카드들을 가로로 나열 */
 
   overflow: none;
   gap: 1.5rem;
@@ -607,6 +612,7 @@ p::-webkit-scrollbar {
   .header_container {
     width: 90%;
   }
+
   .button {
     display: flex;
     height: 5rem;
@@ -614,6 +620,7 @@ p::-webkit-scrollbar {
     align-items: center;
     gap: 2.5rem;
   }
+
   .button a {
     width: 2rem;
   }
@@ -632,6 +639,7 @@ p::-webkit-scrollbar {
     font-weight: 600;
     line-height: normal;
   }
+
   /*Header검색창*/
   .searchBox {
     display: flex;
@@ -726,6 +734,7 @@ p::-webkit-scrollbar {
     font-family: Inter;
     font-size: 1.5rem;
   }
+
   /*section 프로페서*/
   #professor .contentsWrap {
     width: 20rem;
@@ -738,9 +747,11 @@ p::-webkit-scrollbar {
     gap: 0.75rem;
     flex-shrink: 0;
   }
+
   .character {
     font-size: 1rem;
   }
+
   .contentsBox {
     gap: 0.75rem;
   }
@@ -756,6 +767,7 @@ p::-webkit-scrollbar {
     width: 10.25rem;
     height: 9.875rem;
   }
+
   .history {
     gap: 0.25rem;
   }
@@ -827,6 +839,7 @@ p::-webkit-scrollbar {
     overflow-y: scroll;
     position: relative;
   }
+
   .selectList::-webkit-scrollbar {
     width: 0rem;
   }
@@ -928,14 +941,17 @@ p::-webkit-scrollbar {
   }
 
   .openSelectBtn.open {
-    transform: scaleY(-1); /* 버튼 상하반전 */
-    animation: pulse 0.5s alternate infinite; /* 선택한 버튼을 깜박이는 애니메이션 */
+    transform: scaleY(-1);
+    /* 버튼 상하반전 */
+    animation: pulse 0.5s alternate infinite;
+    /* 선택한 버튼을 깜박이는 애니메이션 */
   }
 
   @keyframes pulse {
     0% {
       transform: scaleY(-1);
     }
+
     100% {
       transform: scaleY(-1) translateY(-0px);
     }
@@ -1031,7 +1047,8 @@ p::-webkit-scrollbar {
   }
 
   .projectsSlider {
-    display: flex; /* 프로젝트 카드들을 가로로 나열 */
+    display: flex;
+    /* 프로젝트 카드들을 가로로 나열 */
     gap: 0rem;
     padding: 0rem;
     transition: transform 0.3s ease-in-out;
