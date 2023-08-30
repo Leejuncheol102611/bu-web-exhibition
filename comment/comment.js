@@ -58,20 +58,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const ul = document.createElement('ul');
 
-            const nicknameLi = document.createElement('li');
-            const nicknameText = document.createTextNode(comment.nickname);
-            nicknameLi.appendChild(nicknameText);
-
-            const updatedLi = document.createElement('li');
-            const updatedText = document.createElement('samp');
-            updatedText.textContent = comment.updated;
-            updatedLi.appendChild(updatedText);
-
-            const commentLi = document.createElement('li');
-            commentLi.textContent = comment.comment;
+            const mainLi = document.createElement('li');
+            const mainText = document.createTextNode(`${comment.nickname}`);
+            const samp = document.createElement('samp');
+            samp.textContent = comment.updated;
+            mainText.appendChild(samp);
+            mainLi.appendChild(mainText);
 
             const deleteButton = document.createElement('button');
-            deleteButton.textContent = '삭제';
+            deleteButton.textContent = '삭제하기';
             deleteButton.addEventListener('click', async () => {
                 const deletePassword = prompt('비밀번호를 입력하세요.');
                 if (deletePassword) {
@@ -92,15 +87,21 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
 
-            ul.appendChild(nicknameLi);
-            ul.appendChild(updatedLi);
-            ul.appendChild(commentLi);
+            const commentLi = document.createElement('li');
+            commentLi.textContent = comment.comment;
+
+            ul.appendChild(mainLi);
             ul.appendChild(deleteButton);
+            ul.appendChild(commentLi);
 
             commentContainer.appendChild(ul);
             commentsList.appendChild(commentContainer);
         });
     }
+
+    // 초기화: 댓글 목록 불러오기
+    loadComments();
+
 
 
     // URL에서 파라미터 가져오는 함수
@@ -109,6 +110,4 @@ document.addEventListener('DOMContentLoaded', () => {
     //    return url.searchParams.get(name);
     //}
 
-    // 초기화: 댓글 목록 불러오기
-    loadComments();
 });
