@@ -36,6 +36,8 @@ img {
   --header-text-on: #ffffff;
   --header-text-off: #767676;
   --header-text-hover: #d9d9d9;
+  --section-box-bg: #141414;
+  --border-point: #3dd6b1;
 }
 
 a {
@@ -50,7 +52,7 @@ a {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background: #141414;
+  background: var(--section-box-bg);
   gap: 1rem;
 }
 
@@ -237,8 +239,8 @@ main section:first-child {
   gap: 1.5rem;
 
   border-radius: 0.75rem;
-  border-top: 1px solid #3dd6b1;
-  background: #141414;
+  border-top: 1px solid var(--border-point);
+  background: var(--section-box-bg);
   transition: 0.3s ease-in-out;
 }
 
@@ -305,8 +307,8 @@ section {
   flex-shrink: 0;
 
   border-radius: 0.75rem;
-  border-top: 1px solid #3dd6b1;
-  background: #141414;
+  border-top: 1px solid var(--border-point);
+  background: var(--section-box-bg);
 }
 
 .character {
@@ -394,7 +396,7 @@ section {
   align-items: flex-start;
 
   border-radius: 0.75rem;
-  background: #141414;
+  background: var(--section-box-bg);
 }
 
 .selectBg:first-child {
@@ -536,7 +538,7 @@ section {
   align-items: center;
   gap: 1.5rem;
   border-radius: 0 0.75rem 0.75rem 0;
-  background: #141414;
+  background: var(--section-box-bg);
   border-left: 1px solid #707070;
   box-shadow: -4px 0px 8px 0px rgba(0, 0, 0, 0.15);
 }
@@ -563,7 +565,7 @@ section {
 
   border-radius: 0.75rem;
   border-top: 1px solid #3dd6b1;
-  background: #141414;
+  background: var(--section-box-bg);
   transition: 0.3s ease-out;
 
   position: relative;
@@ -602,6 +604,162 @@ p::-webkit-scrollbar {
 }
 
 /*section 컨테이너 *4*/
+
+/*ProfileAll*/
+#profileAll {
+  width: 90rem;
+}
+
+.profileBox {
+  display: flex;
+  gap: 1.5rem;
+  background: var(--section-box-bg);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  border-top: 1px solid var(--border-point);
+}
+
+
+
+#profileBoxLeft img {
+  width: 15.25rem;
+  height: 17.625rem;
+  border-radius: 0.75rem;
+}
+
+#profileBoxRight {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 44.875rem;
+}
+
+#profileInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+#profileInfo .teamAndJob {
+  color: var(--header-text-off);
+}
+
+.profileProjects {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+}
+
+.profileProjects h3 {
+  font-family: Noto Sans KR;
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+p#profileIntro {
+  width: 44.875rem;
+
+  font-family: Noto Sans KR;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-top: 0.75rem;
+}
+
+#profileUsername {
+  font-family: Noto Sans KR;
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-transform: capitalize;
+}
+
+.profileProjects {
+  gap: 0.75rem;
+  align-items: center;
+}
+
+#profileAwards {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 23.875rem;
+  gap: 0.5rem;
+}
+
+
+#profileAwards h2 {
+  margin-bottom: 0.5rem;
+}
+
+#profileAwards li {
+  display: flex;
+  align-items: center;
+  font-family: Noto Sans KR;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+}
+
+
+
+/*worksInfo*/
+
+#worksInfo {
+  display: flex;
+  flex-direction: row;
+}
+
+/*aside*/
+#work_title {
+  margin-right: 0.75rem;
+}
+
+.aside {
+  display: flex;
+  flex-direction: column;
+  width: 17.25rem;
+  gap: 2.25rem;
+}
+
+#worksList #title {
+  font-family: Noto Sans KR;
+  font-size: 2.25rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-transform: capitalize;
+}
+
+#worksTitle li {
+  cursor: pointer;
+  color: var(--header-text-off);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-family: Noto Sans KR;
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  margin-bottom: 1.5rem;
+}
+
+#worksTitle li.active {
+  color: var(--header-text-on);
+}
+
+/*worksbody*/
+
+.worksBody {
+  width: 67.5rem;
+}
+
+
+
 
 @media (max-width: 488px) {
   .body {
@@ -812,7 +970,7 @@ p::-webkit-scrollbar {
     width: 20rem;
 
     border-radius: 0.75rem;
-    background: #141414;
+    background: var(--section-box-bg);
   }
 
   .selectBg:first-child {
@@ -888,11 +1046,11 @@ p::-webkit-scrollbar {
     display: none;
     padding: 0.5rem;
     border-bottom: 2px solid #3dd6b1;
-    background: #141414;
+    background: var(--section-box-bg);
   }
 
   .selectListModal .select.active:hover {
-    background: #141414;
+    background: var(--section-box-bg);
   }
 
   .selectListModal .select.active .selectText {
@@ -1012,7 +1170,7 @@ p::-webkit-scrollbar {
     justify-content: flex-start;
     align-items: center;
     border-radius: 0 0.75rem 0.75rem 0;
-    background: #141414;
+    background: var(--section-box-bg);
     border-left: none;
     box-shadow: -4px 0px 8px 0px rgba(0, 0, 0, 0.15);
     position: relative;
@@ -1065,7 +1223,7 @@ p::-webkit-scrollbar {
 
     border-radius: 0.75rem;
     border-top: 0px;
-    background: #141414;
+    background: var(--section-box-bg);
     transition: none;
   }
 
