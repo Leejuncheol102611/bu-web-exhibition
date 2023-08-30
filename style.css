@@ -37,7 +37,9 @@ img {
   --header-text-off: #767676;
   --header-text-hover: #d9d9d9;
   --section-box-bg: #141414;
+  --text-off-Btn: #353535;
   --border-point: #3dd6b1;
+  --dark-input-text: #c4c4c4;
 }
 
 a {
@@ -758,6 +760,218 @@ p#profileIntro {
   width: 67.5rem;
 }
 
+/*Comment 댓글*/
+
+#commentSection {
+  width: 90rem;
+}
+
+#commentSection h1 {
+  font-family: Noto Sans KR;
+  font-size: 2.25rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.add-comment {
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 20px;
+}
+
+
+.add-comment h2 {
+  margin-bottom: 1.5rem;
+}
+
+.comments {
+  margin-bottom: 20px;
+}
+
+.comment-container {
+  margin-top: 3.75rem;
+}
+
+
+samp {
+  font-family: Noto Sans KR;
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  color: var(--dark-input-text);
+  margin-left: 1.5rem;
+}
+
+#commentsList ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+
+#commentsList ul li {
+  text-align: center;
+  font-family: Noto Sans KR;
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+#commentsList button {
+  border-style: none;
+  background: none;
+
+
+  color: var(--text-off-Btn);
+  display: flex;
+  padding: 0.5rem 0.75rem;
+  align-items: flex-start;
+
+  font-family: Noto Sans KR;
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-transform: capitalize;
+}
+
+.comment-container li:last-child {
+  font-family: Noto Sans KR;
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+
+  color: var(--dark-input-text);
+  padding: 1.5rem;
+
+  border-radius: 0.75rem;
+  background: #141414;
+}
+
+#comment {
+  height: 3rem;
+}
+
+
+#commentForm {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-family: Noto Sans KR;
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+input[type="text"]#nickname {
+  display: flex;
+  width: 12.5rem;
+  padding: 0.5rem 0.75rem;
+  align-items: flex-start;
+  color: var(--dark-input-text);
+  border-style: none;
+
+  font-family: Noto Sans KR;
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+
+  border-radius: 0.75rem;
+  background: #141414;
+}
+
+input[type="password"]#password {
+  display: flex;
+  width: 7.5rem;
+  padding: 0.5rem 0.75rem;
+  align-items: flex-start;
+
+  color: var(--dark-input-text);
+  font-family: Noto Sans KR;
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+
+
+  border-style: none;
+  border-radius: 0.75rem;
+  background: #141414;
+}
+
+.text_area {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1.5rem;
+}
+
+textarea#comment {
+  display: flex;
+  width: 87rem;
+  height: 10rem;
+  padding: 1.5rem;
+  align-items: flex-start;
+
+  color: var(--dark-input-text);
+  font-family: Noto Sans KR;
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+
+  border-radius: 0.75rem;
+  border-top: 2px solid #00E37D;
+  background: #141414;
+}
+
+button#commentBtn {
+  font-family: Noto Sans KR;
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+
+  border-style: none;
+  padding: 0.25rem 0rem;
+  width: 8rem;
+  border-radius: 0.5rem;
+  background-color: #3b3b3b;
+  color: #c4c4c4;
+  transition: 0.3s ease-out;
+}
+
+button#commentBtn:hover {
+  background-color: #3dd6b1;
+  color: #000000;
+}
+
+#commentList {
+  width: 90rem;
+}
+
+#target_id {
+  display: none;
+  text-align: center;
+  padding: 0 0.75rem 0 0.75rem;
+  height: 2.75rem;
+  border-radius: 0.5rem;
+}
+
+
 
 
 
@@ -1279,4 +1493,19 @@ p#profileIntro {
     gap: 3rem 1.5rem;
     flex-wrap: wrap;
   }
+
+
+
+
+  /*Comment 댓글*/
+  #commentList {
+    width: 20rem;
+  }
+
+  #comment {
+    height: 5rem;
+  }
+
+
+
 }

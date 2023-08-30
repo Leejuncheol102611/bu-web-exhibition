@@ -51,15 +51,18 @@
           </div>
           <div class="intro">
             <h3>소개</h3>
-            <p id="profileIntro">제가 가장 잘 하는 분야에서 만능 해결사가 되어 누구에게나 편리함을 제공할 수 있는 사람이 되는 것이 목표입니다. 그 중 프로덕트 디자이너는 현재 저의
-              능력을 가장 활용할 수 있는 직무라고 생각하였고, 이를 시작으로 IT업계 전반을 아우르는 전문가가 되어 사람들에게 편리함을 전할 수 있는 사람으로 성장하고자 합니다.</p>
+            <p id="profileIntro">안녕하세요! 저는 열정적인 UI/UX 디자이너입니다. 사용자 중심의 디자인을 추구하며, 간결하고 직관적인 경험을 제공하는 것을 목표로 하고 있습니다. 다양한
+              프로젝트를 통해 디자인과 사용자 경험을 조화롭게 결합하여 제품의 가치를 높이는 일에 큰 흥미를 느낍니다. 새로운 도전을 두려워하지 않고, 최신 디자인 트렌드와 기술을 끊임없이 학습하며
+              발전하는 디자이너로서의 역량을 갖추고 있습니다. 함께 일하며 혁신적이고 매력적인 디지털 제품을 만들어나가는 것을 기대하고 있습니다.</p>
           </div>
         </div>
         <div id="profileAwards">
           <h2>Awards & Experience</h2>
-          <li>2021 교내 전공 홍보동영상 공모전 은상</li>
-          <li>2021 교내 전공 홍보동영상 공모전 은상</li>
-          <li>2021 교내 전공 홍보동영상 공모전 은상</li>
+          <li>2021 교내 모모모대회 공모전 대상</li>
+          <li>2022 모모모모 공모전 은상</li>
+          <li>2023 가가가가각 은상</li>
+          <li>2023 가가가가각 은상</li>
+          <li>2023 가가가가각 은상</li>
         </div>
       </div>
     </section>
@@ -86,6 +89,32 @@
       </div>
     </section>
 
+    <section id="commentSection">
+      <h1>이광원 님에게 응원의 한마디</h1>
+
+      <div class="add-comment">
+        <form id="commentForm">
+          <label for="tatget_id">이광원 님에게 응원의 한마디를 남겨보세요.</label>
+          <select id="target_id" name="이름">
+            <option value="1">이광원</option>
+          </select>
+          <input type="text" id="nickname" placeholder="닉네임" required />
+          <input type="password" id="password" placeholder="비밀번호" required />
+
+          <div class="text_area">
+            <textarea id="comment" placeholder="댓글을 입력해 주세요." required></textarea>
+            <button id="commentBtn" type="submit">작성하기</button>
+          </div>
+        </form>
+      </div>
+
+      <div class="comments">
+        <h2 class="sectionTitle">작성된 댓글 목록</h2>
+        <div id="commentsList">
+
+        </div>
+      </div>
+    </section>
   </main>
   <script src="./comment/comment.js"></script>
   <script src="./js/search.js"></script>
