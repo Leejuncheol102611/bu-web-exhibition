@@ -50,7 +50,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const response = await fetch(commentsUrl);
         const comments = await response.json();
 
-        commentsList.innerHTML = ''; // 이전 댓글 목록 삭제
+        const commentsListContainer = document.getElementById('commentsList');
+        commentsListContainer.innerHTML = ''; // 이전 댓글 목록 삭제
 
         comments.forEach(comment => {
             const commentContainer = document.createElement('div');
@@ -59,8 +60,10 @@ document.addEventListener('DOMContentLoaded', () => {
             const ul = document.createElement('ul');
 
             const mainLi = document.createElement('li');
-            const mainText = document.createTextNode(`${comment.nickname}<samp>${comment.updated}</samp>`);
-
+            const mainText = document.createTextNode(comment.nickname);
+            const samp = document.createElement('samp');
+            samp.textContent = comment.updated;
+            mainText.appendChild(samp);
             mainLi.appendChild(mainText);
 
             ul.appendChild(mainLi);
@@ -96,7 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
             ul.appendChild(deleteLi);
 
             commentContainer.appendChild(ul);
-            commentsList.appendChild(commentContainer);
+            commentsListContainer.appendChild(commentContainer);
         });
     }
 
