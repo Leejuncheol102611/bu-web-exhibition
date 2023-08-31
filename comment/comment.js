@@ -93,7 +93,9 @@ document.addEventListener('DOMContentLoaded', () => {
             commentLi.textContent = comment.comment;
             ul.appendChild(commentLi);
 
-            ul.appendChild(deleteButton);
+            const deleteLi = document.createElement('li');
+            deleteLi.appendChild(deleteButton);
+            ul.appendChild(deleteLi);
 
             commentContainer.appendChild(ul);
             commentsList.appendChild(commentContainer);
