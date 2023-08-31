@@ -59,10 +59,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const ul = document.createElement('ul');
 
             const mainLi = document.createElement('li');
-            const mainText = document.createTextNode(`${comment.nickname}`);
-            const samp = document.createElement('samp');
-            samp.textContent = document.createTextNode(`${comment.updated}`);
-            mainText.appendChild(samp);
+            const mainText = document.createTextNode(`${comment.nickname}<samp>${comment.updated}</samp>`);
+
             mainLi.appendChild(mainText);
 
             ul.appendChild(mainLi);
