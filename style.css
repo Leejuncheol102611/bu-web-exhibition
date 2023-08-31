@@ -818,9 +818,12 @@ samp {
   font-style: normal;
   font-weight: 500;
   line-height: normal;
+  display: flex;
+  align-items: center;
 }
 
 #commentsList button {
+  cursor: pointer;
   border-style: none;
   background: none;
 
