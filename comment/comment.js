@@ -73,7 +73,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     const deleteResponse = await fetch(`${commentsUrl}/${comment.comment_id}`, {
                         method: 'DELETE',
                         headers: {
-                            'Content-Type': 'application/json'
+                            'Content-Type': 'application/json',
+                            'Origin': 'https://web-bu-web-exhibition-fq2r52kllqhhlnh.sel3.cloudtype.app'
+
                         },
                         mode: 'cors',
                         body: JSON.stringify({ password: deletePassword })
@@ -87,10 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
 
-            const li2 = document.createElement('li');
-
             ul.appendChild(deleteButton);
-            ul.appendChild(li2);
 
             commentContainer.appendChild(ul);
 
