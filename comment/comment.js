@@ -59,17 +59,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const ul = document.createElement('ul');
 
-            const mainLi = document.createElement('li');
-            const mainText = document.createTextNode(comment.nickname);
-            const samp = document.createElement('samp');
-            samp.textContent = comment.updated;
-            mainText.appendChild(samp);
-            mainLi.appendChild(mainText);
-
-            ul.appendChild(mainLi);
+            const li1 = document.createElement('li');
+            li1.innerHTML = `${comment.nickname}<samp>${comment.updated}</samp>`;
+            ul.appendChild(li1);
 
             const deleteButton = document.createElement('button');
             deleteButton.textContent = '삭제하기';
+
+
             deleteButton.addEventListener('click', async () => {
                 const deletePassword = prompt('비밀번호를 입력하세요.');
                 if (deletePassword) {
@@ -90,15 +87,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
 
-            const commentLi = document.createElement('li');
-            commentLi.textContent = comment.comment;
-            ul.appendChild(commentLi);
-
-            const deleteLi = document.createElement('li');
-            deleteLi.appendChild(deleteButton);
-            ul.appendChild(deleteLi);
+            const li2 = document.createElement('li');
+            li2.appendChild(deleteButton);
+            ul.appendChild(li2);
 
             commentContainer.appendChild(ul);
+
+            const li3 = document.createElement('li');
+            li3.textContent = comment.comment;
+            commentContainer.appendChild(li3);
+
             commentsListContainer.appendChild(commentContainer);
         });
     }
