@@ -1,283 +1,344 @@
-// data.json
+const serverUrl = 'https://port-0-bu-exhibition-backend-fq2r52kllqhhlnh.sel3.cloudtype.app';
 
-const dataAll = [
-  {
-    name: "최인욱",
-    profile: "./profileimg/최인욱.png",
-    main: "./main/최인욱-main.png",
-    sub1: "./sub1/최인욱-sub1.png",
-    sub2: "./sub2/최인욱-sub2.png",
-  },
-  {
-    name: "권정연",
-    profile: "./profileimg/권정연.jpg",
-    main: "./main/권정연-main.jpg",
-    sub1: "./sub1/권정연-sub1.jpg",
-    sub2: "./sub2/권정연-sub2.jpg",
-  },
-  {
-    name: "김동우",
-    profile: "./profileimg/김동우.jpg",
-    main: "./main/김동우-main.jpg",
-    sub1: "./sub1/김동우-sub1.jpg",
-    sub2: "./sub2/김동우-sub2.jpg",
-  },
-  {
-    name: "김민혁",
-    profile: "./profileimg/김민혁.jpg",
-    main: "./main/김민혁-main.jpg",
-    sub1: "./sub1/김민혁-sub1.jpg",
-    sub2: "./sub2/김민혁-sub2.jpg",
-  },
-  {
-    name: "김주희",
-    profile: "./profileimg/김주희.jpg",
-    main: "./main/김주희-main.jpg",
-    sub1: "./sub1/김주희-sub1.jpg",
-    sub2: "./sub2/김주희-sub2.jpg",
-  },
-  {
-    name: "방민수",
-    profile: "./profileimg/방민수.jpg",
-    main: "./main/방민수-main.jpg",
-    sub1: "./sub1/방민수-sub1.jpg",
-    sub2: "./sub2/방민수-sub2.jpg",
-  },
-  {
-    name: "백홍은",
-    profile: "./profileimg/백홍은.jpg",
-    main: "./main/백홍은-main.jpg",
-    sub1: "./sub1/백홍은-sub1.jpg",
-    sub2: "./sub2/백홍은-sub2.jpg",
-  },
-  {
-    name: "소리엘",
-    profile: "./profileimg/소리엘.jpg",
-    main: "./main/소리엘-main.jpg",
-    sub1: "./sub1/소리엘-sub1.jpg",
-    sub2: "./sub2/소리엘-sub2.jpg",
-  },
-  {
-    name: "손경주",
-    profile: "./profileimg/손경주.jpg",
-    main: "./main/손경주-main.jpg",
-    sub1: "./sub1/손경주-sub1.jpg",
-    sub2: "./sub2/손경주-sub2.jpg",
-  },
-  {
-    name: "여초교",
-    profile: "./profileimg/여초교.jpg",
-    main: "./main/여초교-main.jpg",
-    sub1: "./sub1/여초교-sub1.jpg",
-    sub2: "./sub2/여초교-sub2.jpg",
-  },
-  {
-    name: "오성우",
-    profile: "./profileimg/오성우.jpg",
-    main: "./main/오성우-main.jpg",
-    sub1: "./sub1/오성우-sub1.jpg",
-    sub2: "./sub2/오성우-sub2.jpg",
-  },
-  {
-    name: "오수빈",
-    profile: "./profileimg/오수빈.jpg",
-    main: "./main/오수빈-main.jpg",
-    sub1: "./sub1/오수빈-sub1.jpg",
-    sub2: "./sub2/오수빈-sub2.jpg",
-  },
-  {
-    name: "이광원",
-    profile: "./profileimg/이광원.jpg",
-    main: "./main/이광원-main.jpg",
-    sub1: "./sub1/이광원-sub1.jpg",
-    sub2: "./sub2/이광원-sub2.jpg",
-  },
-  {
-    name: "이다빈",
-    profile: "./profileimg/이다빈.jpg",
-    main: "./main/이다빈-main.jpg",
-    sub1: "./sub1/이다빈-sub1.jpg",
-    sub2: "./sub2/이다빈-sub2.jpg",
-  },
-  {
-    name: "이다연",
-    profile: "./profileimg/이다연.jpg",
-    main: "./main/이다연-main.jpg",
-    sub1: "./sub1/이다연-sub1.jpg",
-    sub2: "./sub2/이다연-sub2.jpg",
-  },
-  {
-    name: "이주언",
-    profile: "./profileimg/이주언.jpg",
-    main: "./main/이주언-main.jpg",
-    sub1: "./sub1/이주언-sub1.jpg",
-    sub2: "./sub2/이주언-sub2.jpg",
-  },
-  {
-    name: "정미정",
-    profile: "./profileimg/정미정.jpg",
-    main: "./main/정미정-main.jpg",
-    sub1: "./sub1/정미정-sub1.jpg",
-    sub2: "./sub2/정미정-sub2.jpg",
-  },
-  {
-    name: "조진호",
-    profile: "./profileimg/조진호.jpg",
-    main: "./main/조진호-main.jpg",
-    sub1: "./sub1/조진호-sub1.jpg",
-    sub2: "./sub2/조진호-sub2.jpg",
-  },
-  {
-    name: "주혜원",
-    profile: "./profileimg/주혜원.jpg",
-    main: "./main/주혜원-main.jpg",
-    sub1: "./sub1/주혜원-sub1.jpg",
-    sub2: "./sub2/주혜원-sub2.jpg",
-  },
-  {
-    name: "최지수",
-    profile: "./profileimg/최지수.jpg",
-    main: "./main/최지수-main.jpg",
-    sub1: "./sub1/최지수-sub1.jpg",
-    sub2: "./sub2/최지수-sub2.jpg",
-  },
-  // ... 미리 정의된 데이터를 추가하세요
-];
+async function fetchDataFromServer(endpoint) {
+  try {
+    const response = await fetch(`${serverUrl}/${endpoint}`);
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error(`Error fetching data from server (${endpoint}):`, error);
+    return [];
+  }
+}
 
-const data = dataAll;
+async function getUsersFromServer() {
+  const endpoint = 'users';
+  return await fetchDataFromServer(endpoint);
+}
+
+async function getWorksFromServer() {
+  const endpoint = 'works';
+  return await fetchDataFromServer(endpoint);
+}
+
+document.addEventListener('DOMContentLoaded', async () => {
+  const searchButton = document.getElementById("searchButton");
+  const searchInput = document.getElementById("searchInput");
+  const searchResults = document.getElementById("searchResults");
+  const personalProfile = document.getElementById("personalProfile");
+  const searchOutput = document.querySelector(
+    "#personalProfile .contentsWrap"
+  );
+
+  // 사용자 데이터를 서버에서 가져오는 함수
+  async function fetchUsersData() {
+    const userData = await getUsersFromServer();
+    return userData;
+  }
 
 
-const searchButton = document.getElementById("searchButton");
-const searchInput = document.getElementById("searchInput");
-const searchResults = document.getElementById("searchResults");
-const personalProfile = document.getElementById("personalProfile");
-const projectCard = document.querySelector(".projectsCard");
-const profileCard = document.querySelector(".profileCard")
-const profileCardName = document.querySelector(".profileCardName");
+  // 검색어를 입력하고 결과를 표시하는 함수
+  async function displaySearchResults(searchTerm) {
+    const userData = await fetchUsersData();
+    const disassembledSearchTerm = disassembleKorean(searchTerm).toLowerCase();
+
+    // 검색 결과를 필터링합니다.
+    const matchedData = userData.filter((user) =>
+      disassembleKorean(user.username)
+        .toLowerCase()
+        .includes(disassembledSearchTerm)
+    );
+
+    // 검색 결과를 표시합니다.
+    displayAutocomplete(matchedData);
+  }
+
+  const searchDropdown = document.querySelector(".autocompleteList")
 
 
-document.addEventListener("click", function (event) {
-  if (!searchResults.contains(event.target) && event.target !== searchInput) {
+  // 검색 결과를 화면에 표시하는 함수
+  function displayAutocomplete(matchedData) {
     searchResults.innerHTML = "";
-  }
-});
 
-searchInput.addEventListener("click", function (event) {
-  if (searchResults.innerHTML.trim() === "") {
-    handleInput();
-  }
-});
-
-searchButton.addEventListener("click", () => {
-  const inputName = searchInput.value.trim();
-  displaySearchResults(inputName);
-});
-function showProfiles() {
-  const inputName = searchInput.value.trim();
-  const matchedData = data.filter(item => item.name === inputName);
-
-  if (matchedData.length > 0) {
-    // 검색어를 encodeURIComponent를 사용하여 URL에 인코딩하여 전달
-    const encodedName = encodeURIComponent(inputName);
-    window.location.href = `search.html?name=${encodedName}`;
-  } else {
-    personalProfile.innerHTML = "검색 결과가 없습니다.";
-  }
-}
-
-searchInput.addEventListener("input", handleInput);
-searchInput.addEventListener("keypress", (event) => {
-  if (event.key === "Enter") {
-    showProfiles();
-  }
-});
+    if (matchedData.length > 0) {
+      const autocompleteList = document.createElement("ul");
+      autocompleteList.classList.add("autocompleteList");
 
 
+      matchedData.forEach(item => {
+        const listItem = document.createElement("li");
+        listItem.textContent = item.username;
+        listItem.setAttribute("data-id", item.id);
 
-function handleInput() {
-  const searchTerm = searchInput.value.trim().toLowerCase();
-  const matchedData = data.filter(item => item.name.toLowerCase().includes(searchTerm));
 
-  displayAutocomplete(matchedData);
-}
+        listItem.addEventListener("click", async function () {
+          // 클릭한 카드의 id 값을 가져옴
+          const userId = this.getAttribute("data-id");
 
-function displayAutocomplete(matchedData) {
-  searchResults.innerHTML = "";
+          // 해당 사용자의 정보를 서버에서 가져옴
+          try {
+            const userResponse = await fetch(`${serverUrl}/users/${userId}`);
+            const userData = await userResponse.json();
+            // userData에는 해당 사용자의 정보가 담겨있을 것입니다.
 
-  if (matchedData.length > 0) {
-    const autocompleteList = document.createElement("ul");
-    autocompleteList.classList.add("autocompleteList");
+            // profileAll 페이지로 이동하면서 사용자 정보를 전달
+            window.location.href = `/profileAll.html?id=${userId}`;
+          } catch (error) {
+            console.error('Error fetching user data:', error);
+          }
+        });
 
-    matchedData.forEach(item => {
-      const listItem = document.createElement("li");
-      listItem.textContent = item.name;
-
-      listItem.addEventListener("click", () => {
-        searchInput.value = item.name;
-        searchResults.innerHTML = "";
-        showProfiles();
+        autocompleteList.appendChild(listItem);
       });
 
-      autocompleteList.appendChild(listItem);
-    });
-
-    searchResults.appendChild(autocompleteList);
+      searchResults.appendChild(autocompleteList);
+    }
   }
-}
 
-function displayProfiles(profileData) {
-  personalProfile.innerHTML = "";
 
-  profileData.forEach(profile => {
-    const profileCard = document.createElement("div");
-    profileCard.classList.add("profileCard");
 
-    const profileImg = document.createElement("img");
-    profileImg.src = profile.profile;
-    profileImg.alt = profile.name;
-    profileImg.classList.add("profileImg");
 
-    const profileName = document.createElement("p");
-    profileName.textContent = profile.name;
-    profileName.classList.add("profileCardName")
 
-    profileCard.appendChild(profileImg);
-    profileCard.appendChild(profileName);
-    personalProfile.appendChild(profileCard);
+  //문제없음
+  //검색 후 클릭 시 id값을 담아 이동하게 해주는 함수
+  async function showProfiles(userId) {
+    if (userId) {
+      const encodedUserId = encodeURIComponent(userId);
+      window.location.href = `profileAll.html?id=${encodedUserId}`;
+    } else {
+      personalProfile.innerHTML = "검색 결과가 없습니다.";
+    }
+  }
+
+
+  async function handleInput() {
+    const searchTerm = searchInput.value.trim().toLowerCase();
+    const userData = await getUsersFromServer(); // 서버에서 데이터 가져오기
+
+    if (userData && userData.length > 0) {
+      const matchedData = userData.filter(user => user.username.toLowerCase().includes(searchTerm));
+      displayAutocomplete(matchedData);
+    } else {
+      // 데이터를 불러올 수 없는 경우 처리
+      console.error("데이터를 불러올 수 없습니다.");
+    }
+  }
+
+
+
+
+  // 프로필 페이지로 이동하는 함수
+  function navigateToProfile(userId) {
+    const encodedUserId = encodeURIComponent(userId);
+    window.location.href = `profileAll.html?id=${encodedUserId}`;
+  }
+
+
+  // 한글 문자열을 자소 단위로 분해하는 함수
+  function disassembleKorean(text) {
+    const jasoArray = [];
+
+    for (let i = 0; i < text.length; i++) {
+      const charCode = text.charCodeAt(i);
+
+      if (charCode >= 0xac00 && charCode <= 0xd7a3) {
+        const offset = charCode - 0xac00;
+        const lead = 0x1100 + Math.floor(offset / 588);
+        const vowel = 0x1161 + Math.floor((offset % 588) / 28);
+        const tail = 0x11a7 + (offset % 28);
+        jasoArray.push(String.fromCharCode(lead));
+        jasoArray.push(String.fromCharCode(vowel));
+        if (tail !== 0x11a7) {
+          jasoArray.push(String.fromCharCode(tail));
+        }
+      } else {
+        jasoArray.push(text[i]);
+      }
+    }
+
+    return jasoArray.join("");
+  }
+
+  // 검색 버튼 클릭 또는 Enter 키를 눌렀을 때 검색 결과 표시
+  searchButton.addEventListener('click', () => {
+    const searchTerm = searchInput.value.trim();
+    displaySearchResults(searchTerm);
+    showProfiles(userId);
   });
-}
+
+  searchInput.addEventListener('keypress', (event) => {
+    if (event.key === 'Enter') {
+      const searchTerm = searchInput.value.trim();
+      displaySearchResults(searchTerm);
+      showProfiles(userId);
+    }
+  });
 
 
-window.addEventListener("load", () => {
-  const personalProfile = document.querySelector(
-    "#personalProfile .contentsWrap"
-  ); // 프로필을 보여줄 요소 선택
 
-  data.forEach((profile) => {
-    const profileCard = document.createElement("div");
-    profileCard.classList.add("profileCard");
 
-    const profileImg = document.createElement("img");
-    profileImg.src = profile.profile;
-    profileImg.alt = profile.name;
-    profileImg.classList.add("profileImg");
 
-    const profileName = document.createElement("p");
-    profileName.textContent = profile.name;
-    profileName.classList.add("profileCardName");
 
-    profileCard.appendChild(profileImg);
-    profileCard.appendChild(profileName);
-    personalProfile.appendChild(profileCard);
+  //아래부터 이전코드
+  document.addEventListener("click", function (event) {
+    if (!searchResults.contains(event.target) && event.target !== searchInput) {
+      searchResults.innerHTML = "";
+    }
+  });
 
-    profileCard.addEventListener("click", function () {
-      // 클릭한 카드의 이름(name)을 가져옴
-      const projectName = this.querySelector(".profileCardName").textContent;
+  searchInput.addEventListener("click", function (event) {
+    if (searchResults.innerHTML.trim() === "") {
+      handleInput();
+    }
+  });
 
-      // profile.html로 이동하면서 프로젝트 이름을 전달
-      window.location.href = `profileAll.html?name=${encodeURIComponent(
-        projectName
-      )}`;
+
+
+
+
+
+  //프로필카드가 보여지도록 하는 함수
+  function displayProfiles(userData) {
+    searchOutput.innerHTML = "";
+
+    userData.forEach(profile => {
+      const profileCard = document.createElement("div");
+      profileCard.classList.add("profileCard");
+      profileCard.setAttribute("data-id", profile.id);
+
+      const profileImg = document.createElement("img");
+      profileImg.src = profile.profileimg; // userData 객체의 프로필 이미지 경로로 변경
+      profileImg.alt = profile.username;
+      profileImg.classList.add("profileImg");
+
+      const profileName = document.createElement("p");
+      profileName.textContent = profile.username;
+      profileName.classList.add("profileCardName");
+
+      profileCard.appendChild(profileImg);
+      profileCard.appendChild(profileName);
+      searchOutput.appendChild(profileCard);
+
+      profileCard.addEventListener("click", async function () {
+        // 클릭한 카드의 id 값을 가져옴
+        const selectedUserId = this.getAttribute("data-id");
+
+        // 해당 사용자의 정보를 서버에서 가져옴
+        try {
+          const userResponse = await fetch(`${serverUrl}/users/${selectedUserId}`);
+          const userData = await userResponse.json();
+          // userData에는 해당 사용자의 정보가 담겨있을 것입니다.
+
+          // profileAll 페이지로 이동하면서 사용자 정보를 전달
+          window.location.href = `/profileAll.html?id=${selectedUserId}`;
+        } catch (error) {
+          console.error('Error fetching user data:', error);
+        }
+      });
     });
+  }
+
+  // 검색어 입력 시 검색 결과를 표시하는 함수
+  async function displaySearchResults(searchTerm) {
+    searchOutput.innerHTML = ""; // 기존 프로필 카드 삭제
+    searchResults.innerHTML = ""; // 기존 검색 결과 삭제
+
+    // 서버에서 데이터 가져오기
+    const userData = await getUsersFromServer();
+
+    if (userData && userData.length > 0) {
+      const disassembledSearchTerm = disassembleKorean(searchTerm).toLowerCase();
+      const matchedData = userData.filter((user) =>
+        disassembleKorean(user.username)
+          .toLowerCase()
+          .includes(disassembledSearchTerm)
+      );
+
+      if (matchedData.length > 0) {
+        displayProfiles(matchedData);
+      } else {
+        searchResults.textContent = "검색 결과가 없습니다.";
+      }
+
+      // 자동완성 목록 표시
+      displayAutocomplete(matchedData);
+    } else {
+      searchResults.textContent = "데이터를 불러올 수 없습니다.";
+    }
+  }
+
+  // 검색어 입력란의 값이 변경될 때마다 검색 결과 표시
+  searchInput.addEventListener("input", () => {
+    const searchTerm = searchInput.value.trim();
+    displaySearchResults(searchTerm);
+  });
+
+  // 검색 버튼 클릭 시 검색 결과 표시
+  searchButton.addEventListener("click", () => {
+    const inputName = searchInput.value.trim();
+    displaySearchResults(inputName);
+  });
+
+
+
+
+
+  //search.html로 이동 시 동작하는 코드
+  //페이지 로드 시 프로필카드 전체를 불러옴
+  window.addEventListener("load", async () => {
+
+    try {
+      const response = await fetch(`${serverUrl}/users`);
+      const userData = await response.json();
+
+      userData.forEach((user) => {
+        const profileCard = document.createElement("div");
+        profileCard.classList.add("profileCard");
+        profileCard.setAttribute("data-id", user.id); // 사용자 id를 data-id 속성으로 설정
+
+        const profileImg = document.createElement("img");
+        profileImg.src = user.profileimg;
+        profileImg.alt = user.username;
+        profileImg.classList.add("profileImg");
+
+        const profileName = document.createElement("p");
+        profileName.textContent = user.username;
+        profileName.classList.add("profileCardName");
+
+        profileCard.appendChild(profileImg);
+        profileCard.appendChild(profileName);
+        searchOutput.appendChild(profileCard);
+
+        profileCard.addEventListener("click", async function () {
+          // 클릭한 카드의 id 값을 가져옴
+          const selectedUserId = this.getAttribute("data-id");
+
+          // 해당 사용자의 정보를 서버에서 가져옴
+          try {
+            const userResponse = await fetch(`${serverUrl}/users/${selectedUserId}`);
+            const userData = await userResponse.json();
+            // userData에는 해당 사용자의 정보가 담겨있을 것입니다.
+
+            // profileAll 페이지로 이동하면서 사용자 정보를 전달
+            window.location.href = `/profileAll.html?id=${selectedUserId}`;
+          } catch (error) {
+            console.error('Error fetching user data:', error);
+          }
+        });
+      });
+    } catch (error) {
+      console.error('Error fetching user list:', error);
+    }
   });
 });
+
+
+
+
+
+
+
+

@@ -20,7 +20,8 @@
         <a href="search.html" class="header_btn active">프로필</a>
         <div class="search">
           <form id="searchProfile" class="searchBox">
-            <input type="text" name="selected" id="searchInput" placeholder="프로필 검색" />
+            <input type="text" name="username" autocomplete="off" id="searchInput" autocomplete="off"
+              placeholder="프로필 검색" />
             <button id="searchButton">
               <img src="./icons/search-stroke.svg" alt="search-stroke" />
             </button>
@@ -35,7 +36,19 @@
     <section id="profileAll">
       <h1 class="sectionTitle">Profile</h1>
       <div class="profileBox">
-        <div id="profileBoxLeft"><img src="./profileimg/이광원.jpg" alt=""></div>
+        <div id="profileBoxLeft">
+          <img src="./profileimg/이광원.jpg" alt="">
+          <div class="phoneAndEmail">
+            <div class="profileContact">
+              <img src="./icons/call-outline.svg" alt="">
+              <p>010-0000-0000</p>
+            </div>
+            <div class="profileContact">
+              <img src="./icons/email-outline.svg" alt="">
+              <p>qwer12345@bu.ac.kr</p>
+            </div>
+          </div>
+        </div>
         <div id="profileBoxRight">
           <div id="profileInfo">
             <div class="profileName">
@@ -46,18 +59,28 @@
             <p>#소통하는 #성장하는 #꼼꼼한 #효율적인 #창의적인 #논리적인</p>
           </div>
           <div class="profileProjects">
-            <h3>Main Project</h3><span id="work_title">Title</span>
-            <h3>Sub Project</h3><span id="work_title">Title, Title</span>
+            <div class="projectGroup">
+              <h3>Main Project</h3><span id="work_title">Title</span>
+            </div>
+            <div class="projectGroup">
+              <h3>Sub Project</h3><span id="work_title">Title, Title</span>
+            </div>
           </div>
           <div class="intro">
-            <h3>소개</h3>
+            <div class="titleGroup">
+              <h2>소개</h2>
+              <img src="./icons/down-outline.svg" alt="" class="moreBtn active">
+            </div>
             <p id="profileIntro">안녕하세요! 저는 열정적인 UI/UX 디자이너입니다. 사용자 중심의 디자인을 추구하며, 간결하고 직관적인 경험을 제공하는 것을 목표로 하고 있습니다. 다양한
               프로젝트를 통해 디자인과 사용자 경험을 조화롭게 결합하여 제품의 가치를 높이는 일에 큰 흥미를 느낍니다. 새로운 도전을 두려워하지 않고, 최신 디자인 트렌드와 기술을 끊임없이 학습하며
               발전하는 디자이너로서의 역량을 갖추고 있습니다. 함께 일하며 혁신적이고 매력적인 디지털 제품을 만들어나가는 것을 기대하고 있습니다.</p>
           </div>
         </div>
         <div id="profileAwards">
-          <h2>Awards & Experience</h2>
+          <div class="titleGroup">
+            <h2>Awards & Experience</h2>
+            <img src="./icons/down-outline.svg" alt="" class="moreBtn active">
+          </div>
           <li>2021 교내 모모모대회 공모전 대상</li>
           <li>2022 모모모모 공모전 은상</li>
           <li>2023 가가가가각 은상</li>
@@ -70,12 +93,20 @@
     <section id="worksInfo">
       <div class="aside">
         <h2 id="title">Projects</h2>
-        <ul id="worksTitle">
-          <li class="active">체커 - 손쉬운 흡연관리 앱</li>
-          <li>체커 - 손쉬운 흡연관리 앱</li>
-          <li>체커 - 손쉬운 흡연관리 앱</li>
-          <li>체커 - 손쉬운 흡연관리 앱</li>
-        </ul>
+        <div class="worksTitleSlider">
+          <ul id="worksTitle">
+            <li class="active">체커 - 손쉬운 흡연관리 앱</li>
+            <li>체커 - 손쉬운 흡연관리 앱</li>
+            <li>체커 - 손쉬운 흡연관리 앱</li>
+            <li>체커 - 손쉬운 흡연관리 앱</li>
+          </ul>
+          <select name="" id="worksTitleMobile">
+            <option selected value="1">체커 - 손쉬운 흡연관리 앱</option>
+            <option value="2">2체커 - 손쉬운 흡연관리 앱</option>
+            <option value="3">3체커 - 손쉬운 흡연관리 앱</option>
+            <option value="4">4체커 - 손쉬운 흡연관리 앱</option>
+          </select>
+        </div>
       </div>
       <div class="worksBody">
         <div class="useTools">
@@ -84,7 +115,7 @@
         </div>
         <div class="links"></div>
         <div class="worksImg">
-          <img src="./sub1/최인욱-sub1.png" alt="">
+          <img src="./work/이광원_1_workimg.png" alt="">
         </div>
       </div>
     </section>
@@ -96,10 +127,11 @@
         <form id="commentForm">
           <label for="tatget_id">이광원 님에게 응원의 한마디를 남겨보세요.</label>
           <select id="target_id" name="이름">
+            <!--option value는 불러오는 id값과 같아야함-->
             <option value="1">이광원</option>
           </select>
-          <input type="text" id="nickname" placeholder="닉네임" required />
-          <input type="password" id="password" placeholder="비밀번호" required />
+          <input type="text" id="nickname" autocomplete="off" placeholder="닉네임" required />
+          <input type="password" id="password" autocomplete="off" placeholder="비밀번호" required />
 
           <div class="text_area">
             <textarea id="comment" placeholder="댓글을 입력해 주세요." required></textarea>

@@ -18,7 +18,6 @@ document.addEventListener('DOMContentLoaded', () => {
         event.preventDefault();
 
         const target_id = targetIdInput.value; //임시
-
         //const target_id = getParameterByName('id'); // URL에서 id 파라미터 가져오기
         const nickname = nicknameInput.value;
         const password = passwordInput.value;
@@ -38,9 +37,11 @@ document.addEventListener('DOMContentLoaded', () => {
         if (response.ok) {
             // 댓글 작성 성공 시 화면 갱신
             loadComments();
+            alert('댓글이 작성되었습니다.');
         } else {
             // 댓글 작성 실패 시 처리
             console.error('댓글 작성 실패');
+            alert('서버에 문제가 발생하여 댓글 작성에 실패하였습니다. 다시 시도해주세요.'); // 실패 알람
         }
     });
 
@@ -54,9 +55,17 @@ document.addEventListener('DOMContentLoaded', () => {
         commentsListContainer.innerHTML = ''; // 이전 댓글 목록 삭제
 
         comments.forEach(comment => {
+
+            if (/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{3}Z$/.test(comment.updated)) {
+                const updatedDate = new Date(comment.updated);
+                const formattedUpdatedDate = `${updatedDate.getFullYear()}-${String(updatedDate.getMonth() + 1).padStart(2, '0')}-${String(updatedDate.getDate()).padStart(2, '0')} ${String(updatedDate.getHours()).padStart(2, '0')}:${String(updatedDate.getMinutes()).padStart(2, '0')}`;
+
+                comment.updated = formattedUpdatedDate;
+            }
+
+
             const commentContainer = document.createElement('div');
             commentContainer.classList.add('comment-container');
-
             const ul = document.createElement('ul');
 
             const li1 = document.createElement('li');
@@ -83,8 +92,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
                     if (deleteResponse.ok) {
                         loadComments(); // 댓글 삭제 성공 시 화면 갱신
+                        alert('댓글이 삭제되었습니다.');
                     } else {
                         console.error('댓글 삭제 실패');
+                        alert('비밀번호가 일치하지 않습니다.');
                     }
                 }
             });
@@ -113,3 +124,14 @@ document.addEventListener('DOMContentLoaded', () => {
     //}
 
 });
+
+
+
+
+
+const searchButton = document.getElementById("searchButton");
+const searchInput = document.getElementById("searchInput");
+const searchResults = document.getElementById("searchResults");
+const personalProfile = document.getElementById("personalProfile");
+
+

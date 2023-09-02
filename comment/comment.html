@@ -7,7 +7,6 @@
     <title>댓글 기능 테스트</title>
     <link rel="stylesheet" href="../font-family.css" />
     <link rel="stylesheet" href="../style.css" />
-    <link rel="stylesheet" href="comment.css" />
 </head>
 
 <body>
@@ -19,7 +18,7 @@
                 <a href="../search.html" class="header_btn">프로필</a>
                 <div class="search">
                     <form id="searchProfile" class="searchBox">
-                        <input type="text" name="selected" id="searchInput" placeholder="프로필 검색" />
+                        <input type="text" autocomplete="off" name="selected" id="searchInput" placeholder="프로필 검색" />
                         <button id="searchButton">
                             <img src="../icons/search-stroke.svg" alt="search-stroke" />
                         </button>
@@ -31,35 +30,13 @@
     </header>
 
     <main>
-        <section>
-            <h1>댓글 기능 테스트</h1>
+        <section id="guestBookSection">
+            <h1>BU WEB EXHIBITION 2023</h1>
 
             <div class="add-comment">
-                <h2>댓글 작성하기</h2>
                 <form id="commentForm">
-                    <label for="tatget_id">댓글을 남길 대상:</label>
-                    <select id="target_id" name="이름">
-                        <option value="1">이광원</option>
-                        <option value="2">최인욱</option>
-                        <option value="3">권정연</option>
-                        <option value="4">김동우</option>
-                        <option value="5">김민혁</option>
-                        <option value="6">김주희</option>
-                        <option value="7">방민수</option>
-                        <option value="8">백홍은</option>
-                        <option value="9">소리엘</option>
-                        <option value="10">오성우</option>
-                        <option value="11">오수빈</option>
-                        <option value="12">이다빈</option>
-                        <option value="13">이다연</option>
-                        <option value="14">이주언</option>
-                        <option value="15">정미정</option>
-                        <option value="16">조진호</option>
-                        <option value="17">주혜원</option>
-                        <option value="18">최지수</option>
-                        <option value="19">여초교</option>
-                        <option value="20">손경주</option>
-                    </select>
+                    <label for="tatget_id">방명록을 남겨보세요</label>
+
                     <input type="text" id="nickname" placeholder="닉네임" required />
                     <input type="password" id="password" placeholder="비밀번호" required />
 
@@ -71,7 +48,7 @@
             </div>
 
             <div class="comments">
-                <h2 class="sectionTitle">작성된 댓글 목록</h2>
+                <h2 class="sectionTitle">작성된 방명록</h2>
                 <div id="commentsList">
                     <div class="comment-container">
                         <li>익명의 방문자</li>
@@ -84,7 +61,8 @@
         </section>
     </main>
     <script src="comment.js"></script>
-    <script></script>
+    <script src="../js/index.js"></script>
+    <script src="../js/search.js"></script>
 </body>
 
 </html>
