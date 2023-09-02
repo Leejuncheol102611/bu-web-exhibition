@@ -809,6 +809,10 @@ p#profileIntro {
   width: 90rem;
 }
 
+#guestBookSection {
+  width: 90rem;
+}
+
 #commentSection h1 {
   font-family: Noto Sans KR;
   font-size: 2.25rem;
@@ -980,7 +984,7 @@ textarea#comment {
   line-height: normal;
 
   border-radius: 0.75rem;
-  border-top: 2px solid #00E37D;
+  border-top: 2px solid var(--border-point);
   background: #141414;
 }
 
@@ -1001,7 +1005,7 @@ button#commentBtn {
 }
 
 button#commentBtn:hover {
-  background-color: #3dd6b1;
+  background-color: var(--border-point);
   color: #000000;
 }
 
@@ -1280,7 +1284,7 @@ button#commentBtn:hover {
   .selectListModal {
     display: none;
     width: 20rem;
-    height: 37.5rem;
+    height: 33.5rem;
 
     flex-direction: column;
     align-items: flex-start;
@@ -1802,6 +1806,10 @@ button#commentBtn:hover {
   /*Comment 댓글*/
 
   #commentSection {
+    width: 20rem;
+  }
+
+  #guestBookSection {
     width: 20rem;
   }
 
