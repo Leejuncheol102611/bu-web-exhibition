@@ -195,11 +195,10 @@ header {
 }
 
 main {
-  margin: 0 15rem;
   margin-top: 3rem;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   gap: 3.75rem;
 }
 
@@ -1031,6 +1030,10 @@ button#commentBtn:hover {
     overflow-x: hidden;
   }
 
+  header {
+    width: 100%;
+  }
+
   section {
     gap: 1.75rem;
   }
@@ -1149,6 +1152,7 @@ button#commentBtn:hover {
   main {
     align-items: center;
     gap: 3.75rem;
+    width: 100%;
   }
 
   h1 {
@@ -1724,6 +1728,8 @@ button#commentBtn:hover {
   #worksInfo {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    width: 100%;
   }
 
   /*aside*/
@@ -1734,14 +1740,25 @@ button#commentBtn:hover {
 
 
   .aside {
-    top: 2rem;
-    align-items: flex-start;
-    gap: 2.25rem;
+    top: 0rem;
+    left: 0rem;
+    width: 100%;
+
+    gap: 0.5rem;
     height: fit-content;
+    overflow-x: hidden;
+    background: var(--section-box-bg);
+    display: flex;
+    align-items: center;
+    border-top: 1px solid var(--border-point);
   }
 
 
   .aside #title {
+    height: 4rem;
+    display: flex;
+    align-items: center;
+
     font-family: Noto Sans KR;
     font-style: normal;
     font-weight: 500;
@@ -1752,19 +1769,22 @@ button#commentBtn:hover {
   .worksTitleSlider {
     display: flex;
     justify-content: center;
+    width: 20rem;
+    height: 4rem;
   }
 
   #worksTitleMobile {
     display: block;
-    width: 20rem;
+    width: 100%;
     height: 3rem;
-    text-align: center;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
     border-radius: 0.75rem;
     font-size: 1rem;
     font-weight: 500;
     font-style: Noto Sans KR;
     color: var(--header-text-on);
-    background: var(--section-box-bg);
+    background: var(--page-bg);
     border-style: none;
   }
 
@@ -1795,7 +1815,7 @@ button#commentBtn:hover {
   /*worksbody*/
 
   .worksBody {
-    width: 20rem;
+    width: 100%;
   }
 
   .worksImg img {
