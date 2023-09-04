@@ -128,8 +128,6 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
 
 
-
-
   // 프로필 페이지로 이동하는 함수
   function navigateToProfile(userId) {
     const encodedUserId = encodeURIComponent(userId);
@@ -281,9 +279,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     const inputName = searchInput.value.trim();
     displaySearchResults(inputName);
   });
-
-
-
 
 
   //search.html로 이동 시 동작하는 코드

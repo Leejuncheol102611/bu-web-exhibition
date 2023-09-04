@@ -1,5 +1,5 @@
 
-const commentsUrl = serverUrl + '/comments';
+const guestbooksUrl = serverUrl + '/guestbooks';
 
 
 
@@ -9,25 +9,24 @@ document.addEventListener('DOMContentLoaded', () => {
     const nicknameInput = document.getElementById('nickname');
     const passwordInput = document.getElementById('password');
     const commentInput = document.getElementById('comment');
-    const targetIdInput = document.getElementById('target_id');
+
     // 댓글 작성 폼 제출 처리
     commentForm.addEventListener('submit', async (event) => {
         event.preventDefault();
 
-        const target_id = targetIdInput.value; //임시
-        const nickname = nicknameInput.value;
+        const guestname = nicknameInput.value;
         const password = passwordInput.value;
-        const comment = commentInput.value;
+        const guestbook = commentInput.value;
 
 
 
-        const response = await fetch(commentsUrl, {
+        const response = await fetch(guestbooksUrl, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
             mode: 'cors',
-            body: JSON.stringify({ target_id, nickname, password, comment })
+            body: JSON.stringify({ guestname, password, guestbook })
         });
 
         if (response.ok) {
@@ -44,11 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 댓글 목록 가져오기 및 HTML 생성
     async function loadComments() {
-        // URL에서 id 파라미터 가져오기
-        const urlParams = new URLSearchParams(window.location.search);
-        const userId = urlParams.get('id'); // 예: URL에 "?id=1"과 같이 전달될 것입니다.
-
-        const response = await fetch(`${commentsUrl}/target/` + `${userId}`);
+        const response = await fetch(guestbooksUrl);
         const comments = await response.json();
 
         const commentsListContainer = document.getElementById('commentsList');
@@ -69,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const ul = document.createElement('ul');
 
             const li1 = document.createElement('li');
-            li1.innerHTML = `${comment.nickname}<samp>${comment.updated}</samp>`;
+            li1.innerHTML = `${comment.guestname}<samp>${comment.updated}</samp>`;
             ul.appendChild(li1);
 
             const deleteButton = document.createElement('button');
@@ -79,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
             deleteButton.addEventListener('click', async () => {
                 const deletePassword = prompt('비밀번호를 입력하세요.');
                 if (deletePassword) {
-                    const deleteResponse = await fetch(`${commentsUrl}/${comment.comment_id}`, {
+                    const deleteResponse = await fetch(`${guestbooksUrl}/${guestbooks.guestbook_id}`, {
                         method: 'DELETE',
                         headers: {
                             'Content-Type': 'application/json',
@@ -105,7 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
             commentContainer.appendChild(ul);
 
             const li3 = document.createElement('li');
-            li3.textContent = comment.comment;
+            li3.textContent = comment.guestbook;
             commentContainer.appendChild(li3);
 
             commentsListContainer.appendChild(commentContainer);
@@ -124,5 +119,4 @@ document.addEventListener('DOMContentLoaded', () => {
     //}
 
 });
-
 

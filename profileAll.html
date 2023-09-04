@@ -37,33 +37,34 @@
       <h1 class="sectionTitle">Profile</h1>
       <div class="profileBox">
         <div id="profileBoxLeft">
-          <img src="./profileimg/이광원.jpg" alt="">
+          <img src="./profileimg/이광원.jpg" alt="" id="profileImage">
           <div class="phoneAndEmail">
             <div class="profileContact">
               <img src="./icons/call-outline.svg" alt="">
-              <p>010-0000-0000</p>
+              <p id="userPhone">010-0000-0000</p>
             </div>
             <div class="profileContact">
               <img src="./icons/email-outline.svg" alt="">
-              <p>qwer12345@bu.ac.kr</p>
+              <p id="userEmail">qwer12345@bu.ac.kr</p>
             </div>
           </div>
         </div>
         <div id="profileBoxRight">
           <div id="profileInfo">
             <div class="profileName">
-              <span id="profileUsername">이광원</span><span class="teamAndJob">소셜허브</span>
-              <span class="teamAndJob">Product
+              <span id="profileUsername">이광원</span>
+              <span class="teamAndJob" id="profileTeam">소셜허브</span>
+              <span class="teamAndJob" id="profileJob">Product
                 Designer</span>
             </div>
-            <p>#소통하는 #성장하는 #꼼꼼한 #효율적인 #창의적인 #논리적인</p>
+            <p id="profileHashtags">#소통하는 #성장하는 #꼼꼼한 #효율적인 #창의적인 #논리적인</p>
           </div>
           <div class="profileProjects">
             <div class="projectGroup">
-              <h3>Main Project</h3><span id="work_title">Title</span>
+              <h3>Main Project</h3><span class="work_title" id="mainProjectTitle">Title</span>
             </div>
             <div class="projectGroup">
-              <h3>Sub Project</h3><span id="work_title">Title, Title</span>
+              <h3>Sub Project</h3><span class="work_title" id="subProjectTitles">Title, Title</span>
             </div>
           </div>
           <div class="intro">
@@ -81,11 +82,13 @@
             <h2>Awards & Experience</h2>
             <img src="./icons/down-outline.svg" alt="" class="moreBtn active">
           </div>
-          <li>2021 교내 모모모대회 공모전 대상</li>
-          <li>2022 모모모모 공모전 은상</li>
-          <li>2023 가가가가각 은상</li>
-          <li>2023 가가가가각 은상</li>
-          <li>2023 가가가가각 은상</li>
+          <ul id="awardsList">
+            <li>2021 교내 모모모대회 공모전 대상</li>
+            <li>2022 모모모모 공모전 은상</li>
+            <li>2023 가가가가각 은상</li>
+            <li>2023 가가가가각 은상</li>
+            <li>2023 가가가가각 은상</li>
+          </ul>
         </div>
       </div>
     </section>
@@ -111,11 +114,21 @@
       <div class="worksBody">
         <div class="useTools">
           <h3>Use Tool</h3>
-          <div class="tools">Figma</div>
+          <div class="tools" id="useTools">
+            <img src="./icons/figma.png" alt="">
+            <img src="./icons/ps.png" alt="">
+            <img src="./icons/xd.png" alt="">
+            <img src="./icons/ai.png" alt="">
+            <img src="./icons/more.png" alt="">
+          </div>
         </div>
-        <div class="links"></div>
+        <p id="work_body">work_body</p>
+        <div class="links">
+          <a href="#">prototypelink</a>
+          <a href="#">prototypelink</a>
+        </div>
         <div class="worksImg">
-          <img src="./work/이광원_1_workimg.png" alt="">
+          <img id="workImage" src="./work/이광원_1_workimg.png" alt="">
         </div>
       </div>
     </section>
@@ -154,8 +167,9 @@
       </div>
     </section>
   </main>
-  <script src="./comment/comment.js"></script>
   <script src="./js/search.js"></script>
+  <script src="./comment/comment.js"></script>
+  <script src="./js/profileAll.js"></script>
 </body>
 
 </html>
