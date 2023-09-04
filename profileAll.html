@@ -70,7 +70,7 @@
           <div class="intro">
             <div class="titleGroup">
               <h2>소개</h2>
-              <img src="./icons/down-outline.svg" alt="" class="moreBtn active">
+              <img id="introBtn" src="./icons/down-outline.svg" alt="" class="moreBtn expanded">
             </div>
             <p id="profileIntro">안녕하세요! 저는 열정적인 UI/UX 디자이너입니다. 사용자 중심의 디자인을 추구하며, 간결하고 직관적인 경험을 제공하는 것을 목표로 하고 있습니다. 다양한
               프로젝트를 통해 디자인과 사용자 경험을 조화롭게 결합하여 제품의 가치를 높이는 일에 큰 흥미를 느낍니다. 새로운 도전을 두려워하지 않고, 최신 디자인 트렌드와 기술을 끊임없이 학습하며
@@ -80,7 +80,7 @@
         <div id="profileAwards">
           <div class="titleGroup">
             <h2>Awards & Experience</h2>
-            <img src="./icons/down-outline.svg" alt="" class="moreBtn active">
+            <img id="awardsBtn" src="./icons/down-outline.svg" alt="" class="moreBtn expanded">
           </div>
           <ul id="awardsList">
             <li>2021 교내 모모모대회 공모전 대상</li>
@@ -125,7 +125,8 @@
         <p id="work_body">work_body</p>
         <div class="links">
           <a href="#">prototypelink</a>
-          <a href="#">prototypelink</a>
+          <a href="#">sitelink</a>
+          <a href="#">sitelink</a>
         </div>
         <div class="worksImg">
           <img id="workImage" src="./work/이광원_1_workimg.png" alt="">
@@ -134,14 +135,14 @@
     </section>
 
     <section id="commentSection">
-      <h1>이광원 님에게 응원의 한마디</h1>
+      <h1>응원의 한마디</h1>
 
       <div class="add-comment">
         <form id="commentForm">
-          <label for="tatget_id">이광원 님에게 응원의 한마디를 남겨보세요.</label>
+          <label for="tatget_id" id="commentUsername">이광원 님에게 응원의 한마디를 남겨보세요.</label>
           <select id="target_id" name="이름">
             <!--option value는 불러오는 id값과 같아야함-->
-            <option value="1">이광원</option>
+            <option id="optionValue"></option>
           </select>
           <input type="text" id="nickname" autocomplete="off" placeholder="닉네임" required />
           <input type="password" id="password" autocomplete="off" placeholder="비밀번호" required />
@@ -154,7 +155,7 @@
       </div>
 
       <div class="comments">
-        <h2 class="sectionTitle">작성된 댓글 목록</h2>
+        <h2 class="sectionTitle">작성된 응원 목록</h2>
         <div id="commentsList">
           <div class="comment-container">
             <ul>

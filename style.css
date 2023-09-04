@@ -765,6 +765,7 @@ p#profileIntro {
 
 /*aside*/
 .work_title {
+  font-size: 1.25rem;
   margin-right: 0.75rem;
 }
 
@@ -1669,6 +1670,7 @@ button#commentBtn:hover {
 
   .profileProjects {
     flex-direction: column;
+    gap: 0.75rem;
   }
 
 
@@ -1702,9 +1704,10 @@ button#commentBtn:hover {
     display: block;
     position: absolute;
     right: 0;
+    transition: transform 0.3s ease-in-out;
   }
 
-  .moreBtn.active {
+  .moreBtn.expanded {
     transform: scaleY(-1);
     animation: pulse 0.5s alternate infinite;
   }
@@ -1717,6 +1720,24 @@ button#commentBtn:hover {
     font-weight: 400;
     line-height: normal;
     margin-top: 0.75rem;
+  }
+
+  /* 초기에 접혀진 상태 */
+  #profileIntro.collapsed,
+  #awardsList.collapsed {
+    display: none;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
+  }
+
+  /* 확장된 상태 */
+  #profileIntro.expanded,
+  #awardsList.expanded {
+    display: block;
+    max-height: 1000px;
+    /* 충분히 큰 값으로 설정하여 최대 높이 제한을 없애줍니다. */
+    transition: max-height 0.3s ease-in-out;
   }
 
 
@@ -1772,6 +1793,12 @@ button#commentBtn:hover {
   /*aside*/
   #worksTitle {
     display: none;
+  }
+
+
+
+  .work_title {
+    font-size: 0.75rem;
   }
 
 
