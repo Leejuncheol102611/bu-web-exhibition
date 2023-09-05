@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
             deleteButton.addEventListener('click', async () => {
                 const deletePassword = prompt('비밀번호를 입력하세요.');
                 if (deletePassword) {
-                    const deleteResponse = await fetch(`${guestbooksUrl}/${guestbooks.guestbook_id}`, {
+                    const deleteResponse = await fetch(`${guestbooksUrl}/${comment.guestbook_id}`, {
                         method: 'DELETE',
                         headers: {
                             'Content-Type': 'application/json',
