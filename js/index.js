@@ -100,10 +100,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (modalSelect) {
             modalSelect.classList.add("active");
         }
-
     }
-
-
 
 
     // projectCard 업데이트 함수

@@ -48,14 +48,31 @@ a {
 
 .mainBanner {
   width: 100%;
-  height: 67.5rem;
-
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background: var(--section-box-bg);
-  gap: 1rem;
+}
+
+.mainBanner video {
+  width: 100%;
+
+}
+
+
+#mainBannerCopy {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#mainBannerCopy h1 {
+  font-size: 6rem;
+}
+
+#mainBannerCopy p {
+  font-size: 1.5rem;
 }
 
 /*Header*/
@@ -1091,8 +1108,11 @@ button#commentBtn:hover {
   border-radius: 0.5rem;
 }
 
-
-
+/*footer*/
+footer {
+  width: 100%;
+  background: var(--section-box-bg);
+}
 
 
 @media (max-width: 488px) {
@@ -1100,6 +1120,38 @@ button#commentBtn:hover {
     width: 100%;
     overflow-x: hidden;
   }
+
+
+  .mainBanner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .mainBanner video {
+    width: 60rem;
+    height: 40rem;
+
+  }
+
+
+  #mainBannerCopy {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #mainBannerCopy h1 {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  #mainBannerCopy p {
+    font-size: 0.5rem;
+  }
+
 
   header {
     width: 100%;
