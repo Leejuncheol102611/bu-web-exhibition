@@ -1,4 +1,3 @@
-
 const commentsUrl = serverUrl + '/comments';
 
 
@@ -33,6 +32,9 @@ document.addEventListener('DOMContentLoaded', () => {
         if (response.ok) {
             // 댓글 작성 성공 시 화면 갱신
             loadComments();
+            nicknameInput.value = '';
+            passwordInput.value = '';
+            commentInput.value = '';
             alert('댓글이 작성되었습니다.');
         } else {
             // 댓글 작성 실패 시 처리
@@ -54,11 +56,37 @@ document.addEventListener('DOMContentLoaded', () => {
         const commentsListContainer = document.getElementById('commentsList');
         commentsListContainer.innerHTML = ''; // 이전 댓글 목록 삭제
 
+        comments.sort((a, b) => {
+            // updated 속성을 Date 객체로 변환하여 비교합니다.
+            const dateA = new Date(a.updated);
+            const dateB = new Date(b.updated);
+
+            // 내림차순 정렬 (최신 댓글이 먼저 오도록)
+            return dateB - dateA;
+        });
+
+        const currentTime = new Date();
+
         comments.forEach(comment => {
 
+            // 댓글의 생성 시간을 Date 객체로 변환합니다.
+            const commentTime = new Date(comment.updated);
+
+            // 현재 시간과 댓글 생성 시간의 차이를 계산합니다 (밀리초 단위).
+            const timeDifference = currentTime - commentTime;
+
+            // 1시간(밀리초로 3600000 밀리초) 내에 작성된 댓글인지 확인합니다.
+            if (timeDifference <= 3600000) { // 최근 1시간 내에 작성된 경우
+                comment.new = true; // "new" 플래그를 추가합니다.
+            } else {
+                comment.new = false; // "new" 플래그를 추가하지 않습니다.
+            }
+
             if (/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{3}Z$/.test(comment.updated)) {
-                const updatedDate = new Date(comment.updated);
-                const formattedUpdatedDate = `${updatedDate.getFullYear()}-${String(updatedDate.getMonth() + 1).padStart(2, '0')}-${String(updatedDate.getDate()).padStart(2, '0')} ${String(updatedDate.getHours()).padStart(2, '0')}:${String(updatedDate.getMinutes()).padStart(2, '0')}`;
+                const updatedDateUTC = new Date(comment.updated);
+                const updatedDateLocal = new Date(updatedDateUTC.getTime() - (9 * 60 * 60 * 1000)); // UTC+9 (KST)
+
+                const formattedUpdatedDate = `${updatedDateLocal.getFullYear()}-${String(updatedDateLocal.getMonth() + 1).padStart(2, '0')}-${String(updatedDateLocal.getDate()).padStart(2, '0')} ${String(updatedDateLocal.getHours()).padStart(2, '0')}:${String(updatedDateLocal.getMinutes()).padStart(2, '0')}`;
 
                 comment.updated = formattedUpdatedDate;
             }
@@ -69,7 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const ul = document.createElement('ul');
 
             const li1 = document.createElement('li');
-            li1.innerHTML = `${comment.nickname}<samp>${comment.updated}</samp>`;
+            li1.innerHTML = `${comment.nickname}<samp>${comment.updated} ${comment.new ? '<span class="new-tag">new</span>' : ''}</samp>`;
             ul.appendChild(li1);
 
             const deleteButton = document.createElement('button');
@@ -114,6 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 초기화: 댓글 목록 불러오기
     loadComments();
+
 
 
 

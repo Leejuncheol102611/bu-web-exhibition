@@ -63,6 +63,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         selectItem.addEventListener("click", async () => {
             // 기존 .active 제거
             const activeSelect = selectList.querySelector(".select.active");
+
             if (activeSelect) {
                 activeSelect.classList.remove("active");
             }
@@ -77,6 +78,8 @@ document.addEventListener('DOMContentLoaded', async () => {
             const selectedId = selectItem.getAttribute('data-id');
             const selectedWorks = workData.filter((work) => work.work_id.toString() === selectedId);
             updateProjectCards(selectedWorks);
+            // 프로젝트 카드 클릭 이벤트 리스너 추가
+
         });
 
         return selectItem;
@@ -107,6 +110,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     async function updateProjectCards(selectedWorks) {
         const projectCards = document.querySelectorAll('.projectCard');
 
+
         for (let index = 0; index < projectCards.length; index++) {
             const card = projectCards[index];
             const workname = card.querySelector('h3.bold');
@@ -119,14 +123,23 @@ document.addEventListener('DOMContentLoaded', async () => {
                 workname.textContent = `${work.workname}` || "작업중입니다.";
                 projectImg.src = work.workthumb || "./"; // 이미지 경로가 없을 경우 빈 문자열
                 workintro.textContent = work.workintro || "설명이 없습니다.";
+
+                card.addEventListener("click", () => {
+                    // 프로필 페이지로 이동하며 유저 ID 함께 전달
+                    window.location.href = `profileAll.html?id=${work.work_id}`;
+                });
+
             } else {
                 // 선택한 데이터가 3개 미만일 경우, 나머지 projectCard는 초기화
                 workname.textContent = '';
                 projectImg.src = '';
                 workintro.textContent = '';
             }
+
+
         }
     }
+
 
 
 

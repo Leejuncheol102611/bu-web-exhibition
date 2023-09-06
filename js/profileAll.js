@@ -22,10 +22,8 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     // 사용자 데이터 가져오기
     const userData = await fetchUserData(userId);
-    console.log(userData);
     if (userData) {
         // 프로필 정보 업데이트
-        console.log(userData);
         document.getElementById('profileImage').src = userData.user.profileimg;
         document.getElementById('userPhone').textContent = userData.user.user_phone;
         document.getElementById('userEmail').textContent = userData.user.user_email;
@@ -103,10 +101,39 @@ document.addEventListener('DOMContentLoaded', async () => {
             workBody.textContent = work.workbody;
 
             // 링크 업데이트
-            const links = document.querySelectorAll('.links a');
-            links[0].href = work.prototypelink;
-            links[1].href = work.weblink;
-            links[2].href = work.link;
+            // Select the element with class name "links"
+            const linksContainer = document.querySelector(".links");
+            linksContainer.innerHTML = '';
+            // Check if work.weblink is not empty and create a link
+            if (work.weblink.trim() !== "") {
+                const weblinkAnchor = document.createElement("a");
+                weblinkAnchor.href = work.weblink;
+                weblinkAnchor.target = "_blank";
+                weblinkAnchor.textContent = "웹사이트";
+                linksContainer.appendChild(weblinkAnchor);
+            }
+
+            // Check if work.prototypelink is not empty and create a link
+            if (work.prototypelink.trim() !== "") {
+                const prototypelinkAnchor = document.createElement("a");
+                prototypelinkAnchor.href = work.prototypelink;
+                prototypelinkAnchor.target = "_blank";
+                prototypelinkAnchor.textContent = "프로토타입 바로가기";
+                linksContainer.appendChild(prototypelinkAnchor);
+            }
+
+            // Check if work.link is not empty and create a link
+            if (work.link.trim() !== "") {
+                const iframe = document.createElement('div');
+                const h3 = document.createElement('h3');
+                iframe.innerHTML = work.link;
+                h3.textContent = "인터렉티브 그래픽 영상작품";
+                linksContainer.appendChild(h3);
+                linksContainer.appendChild(iframe);
+
+            }
+
+
 
             const usetools = document.getElementById('useTools');
             usetools.innerHTML = '';
