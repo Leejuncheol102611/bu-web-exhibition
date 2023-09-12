@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const selectListModal = document.querySelector(".selectListModal");
     const openSelectBtn = document.querySelector(".openSelectBtn");
     const modalContent = document.querySelector(".select.active.default");
-
+    const creadit = document.querySelector(".creadit-username");
     const selectList = document.querySelector(".selectList");
     const underGraduateSection = document.querySelector("#underGraduate");
 
@@ -25,6 +25,14 @@ document.addEventListener('DOMContentLoaded', async () => {
     const userData = await fetchUsersData();
     const workData = await fetchWorksData();
 
+    function createUsername(item) {
+        const li = document.createElement("li");
+        li.textContent = item.username;
+
+        creadit.appendChild(li);
+    }
+
+    userData.forEach(createUsername);
 
 
     // select 요소 생성 함수

@@ -40,6 +40,9 @@ img {
   --text-off-Btn: #353535;
   --border-point: #3dd6b1;
   --dark-input-text: #c4c4c4;
+  --footer-off-text: #353535;
+  --footer-regular-text: #c4c4c4;
+  --footer-option-text: #707070;
 }
 
 a {
@@ -216,7 +219,7 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 3.75rem;
+  gap: 7.5rem;
 }
 
 main section:first-child {
@@ -1108,12 +1111,288 @@ button#commentBtn:hover {
   border-radius: 0.5rem;
 }
 
+/*creadit*/
+#creadit {
+  display: flex;
+  align-items: center;
+}
+
+#creadit .contentsWrap {
+  flex-direction: column;
+  gap: 3.72rem;
+}
+
+#creadit .contentsWrap .creadit-username {
+  display: flex;
+  width: 41.5rem;
+  padding-bottom: 0px;
+  justify-content: center;
+  align-items: flex-start;
+  align-content: flex-start;
+  gap: 2.25rem;
+  flex-wrap: wrap;
+}
+
+.undergraduate {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3.75rem;
+}
+
+#creadit div h3 {
+  font-weight: 400;
+  font-size: 2.25rem;
+}
+
+.creadit-username li {
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-transform: capitalize;
+}
+
+.stillCut {
+  display: flex;
+  flex-direction: column;
+  width: 90rem;
+  justify-content: space-between;
+  align-items: flex-start;
+  align-content: flex-start;
+  row-gap: 3rem;
+  flex-wrap: wrap;
+}
+
+.stillCutImgs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.stillCutImgs li {
+  display: flex;
+  padding: 1.5rem;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+
+  border-radius: 0.75rem;
+  border-top: 1px solid #3DD6B1;
+  background: #141414;
+}
+
+.stillCutImgs li:nth-child(1) img,
+.stillCutImgs li:nth-child(3) img,
+.stillCutImgs li:nth-child(5) img,
+.stillCutImgs li:nth-child(6) img {
+  width: 18.375rem;
+  height: 21.1875rem;
+  border-radius: 0.75rem;
+}
+
+.stillCutImgs li:nth-child(2) img,
+.stillCutImgs li:nth-child(4) img {
+  width: 41.25rem;
+  height: 21.1875rem;
+  border-radius: 0.75rem;
+}
+
+.stillCutImgs li:nth-child(7) img {
+  width: 87rem;
+  height: 21.1875rem;
+  border-radius: 0.75rem;
+}
+
 /*footer*/
 footer {
   width: 100%;
   background: var(--section-box-bg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 7.5rem;
 }
 
+.contents-container {
+  display: flex;
+  width: 90rem;
+  padding: 3.75rem 0rem;
+  flex-direction: column;
+  align-items: center;
+  gap: 3.75rem;
+}
+
+.contents-container .contents {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  align-self: stretch;
+}
+
+.contents .first-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.first-content .footer-tit {
+  color: var(--footer-off-text);
+  font-family: Darker Grotesque;
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-transform: capitalize;
+}
+
+.first-content .footer-project-tit {
+  color: var(--footer-regular-text);
+  font-family: Darker Grotesque;
+  font-size: 2.25rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-transform: capitalize;
+}
+
+.contents .second-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+
+.second-content .anchors {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+
+.second-content .anchors a {
+  color: var(--footer-regular-text);
+  font-family: Noto Sans KR;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.second-content .site-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.5rem;
+  padding-top: 1.5rem;
+
+  border-top: 1px solid #3DD6B1;
+}
+
+.site-info p {
+  color: var(--footer-regular-text);
+  font-family: Noto Sans KR;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-transform: capitalize;
+}
+
+.site-info .offline-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+
+.offline-info div {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.offline-info h2 {
+  color: var(--footer-regular-text);
+  font-family: Noto Sans KR;
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-transform: capitalize;
+}
+
+.offline-info .off-option {
+  color: var(--footer-option-text);
+  font-family: Noto Sans KR;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-transform: capitalize;
+}
+
+.offline-info .off-text {
+  color: var(--footer-regular-text);
+  font-family: Noto Sans KR;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-transform: capitalize;
+}
+
+.second-content .sub-info {
+  color: var(--footer-off-text);
+  font-family: Noto Sans KR;
+  font-size: 0.75rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-transform: capitalize;
+}
+
+.contents .third-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1.5rem;
+}
+
+.third-content .creat-title {
+  color: var(--footer-option-text);
+  font-family: Noto Sans KR;
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-transform: capitalize;
+}
+
+.third-content div {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.third-content div .creat-option {
+  color: var(--footer-option-text);
+  font-family: Noto Sans KR;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-transform: capitalize;
+}
+
+.third-content div .creat-text {
+  color: var(--footer-regular-text);
+  font-family: Noto Sans KR;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-transform: capitalize;
+}
 
 @media (max-width: 488px) {
   body {
@@ -1127,14 +1406,42 @@ footer {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    background: #000000;
   }
 
   .mainBanner video {
-    width: 60rem;
     height: 40rem;
 
   }
 
+
+
+  .profileCard {
+    cursor: pointer;
+
+    display: flex;
+    flex-wrap: wrap;
+    width: 8.625rem;
+    padding: 0.5rem 0.5rem;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    flex-shrink: 0;
+
+    border-radius: 0.75rem;
+    border-top: 1px solid var(--border-point);
+    background: var(--section-box-bg);
+    transition: 0.3s ease-in-out;
+  }
+
+  .profileCardName {
+    font-size: 1rem;
+  }
+
+  .profileImg {
+    width: 8.5rem;
+    height: 9.8125rem;
+  }
 
   #mainBannerCopy {
     position: absolute;
@@ -1663,13 +1970,17 @@ footer {
     width: 0.75rem;
   }
 
+  #personalProfile {
+    gap: 1.5rem;
+  }
+
   #personalProfile .contentsWrap {
     display: flex;
     width: 20rem;
     align-items: flex-start;
     align-content: flex-start;
     justify-content: flex-start;
-    gap: 3rem 1.5rem;
+    gap: 0.75rem 0.75rem;
     flex-wrap: wrap;
   }
 
@@ -2111,6 +2422,278 @@ footer {
 
   }
 
+  /*creadit*/
+
+  #creadit .contentsWrap {
+    flex-direction: column;
+  }
+
+  .stillCut {
+    width: 20rem;
+  }
+
+  #creadit .contentsWrap .creadit-username {
+    display: flex;
+    width: 20rem;
+    padding-bottom: 0px;
+    justify-content: center;
+    align-items: flex-start;
+    align-content: flex-start;
+    gap: 2.25rem;
+    flex-wrap: wrap;
+  }
+
+  .undergraduate {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  #creadit div h3 {
+    font-weight: 400;
+    font-size: 1.25rem;
+  }
+
+  .creadit-username li {
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-transform: capitalize;
+  }
+
+  /*still cut*/
+  .stillCutImgs {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    align-content: flex-start;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .stillCutImgs li {
+    padding: 0.75rem;
+  }
+
+  .stillCutImgs li:nth-child(2) img,
+  .stillCutImgs li:nth-child(3) img,
+  .stillCutImgs li:nth-child(6) img,
+  .stillCutImgs li:nth-child(7) img {
+    width: 8.125rem;
+    height: 10.3125rem;
+  }
+
+  .stillCutImgs li:nth-child(1) img,
+  .stillCutImgs li:nth-child(5) img {
+    width: 18.375rem;
+    height: 10.3125rem;
+  }
+
+  .stillCutImgs li:nth-child(4) img {
+    width: 18.375rem;
+    height: 15rem;
+  }
+
+
+
+
+
+
+
+
+  /*footer*/
+  footer {
+    margin-top: 3.75rem;
+    width: 100%;
+    background: var(--section-box-bg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contents-container {
+    display: flex;
+    width: 20rem;
+    padding: 3.75rem 0rem;
+    flex-direction: column;
+    align-items: center;
+    gap: 3.75rem;
+  }
+
+  .contents-container .contents {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 1.5rem;
+    align-items: stretch;
+  }
+
+  .contents .first-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .first-content .footer-tit {
+    color: var(--footer-off-text);
+    font-family: Darker Grotesque;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-transform: capitalize;
+  }
+
+  .first-content .footer-project-tit {
+    color: var(--footer-regular-text);
+    font-family: Darker Grotesque;
+    font-size: 2.25rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-transform: capitalize;
+  }
+
+  .contents .second-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+
+  .second-content .anchors {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+
+  .second-content .anchors a {
+    color: var(--footer-regular-text);
+    font-family: Noto Sans KR;
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+  }
+
+  .second-content .site-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding-top: 0.75rem;
+
+    border-top: 1px solid #3DD6B1;
+  }
+
+  .site-info p {
+    color: var(--footer-regular-text);
+    font-family: Noto Sans KR;
+    font-size: 0.625rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    text-transform: capitalize;
+  }
+
+  .site-info .offline-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .offline-info div {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .offline-info h2 {
+    color: var(--footer-regular-text);
+    font-family: Noto Sans KR;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-transform: capitalize;
+  }
+
+  .offline-info .off-option {
+    color: var(--footer-option-text);
+    font-family: Noto Sans KR;
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    text-transform: capitalize;
+  }
+
+  .offline-info .off-text {
+    flex: 1 0 0;
+    color: var(--footer-regular-text);
+    font-family: Noto Sans KR;
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    text-transform: capitalize;
+  }
+
+  .second-content .sub-info {
+    color: var(--footer-off-text);
+    font-family: Noto Sans KR;
+    font-size: 0.5rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    text-transform: capitalize;
+  }
+
+  .contents .third-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .third-content .creat-title {
+    color: var(--footer-option-text);
+    font-family: Noto Sans KR;
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    text-transform: capitalize;
+  }
+
+  .third-content div {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .third-content div .creat-option {
+    color: var(--footer-option-text);
+    font-family: Noto Sans KR;
+    font-size: 0.5rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    text-transform: capitalize;
+  }
+
+  .third-content div .creat-text {
+    color: var(--footer-regular-text);
+    font-family: Noto Sans KR;
+    font-size: 0.5rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    text-transform: capitalize;
+  }
 
 
 }
