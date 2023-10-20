@@ -261,7 +261,23 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     }
 
+    const lhj = document.getElementById('lhj');
+    const wjs = document.getElementById('wjs');
+    const text = document.querySelector('.text');
 
+    lhj.addEventListener('click', () => {
+        lhj.classList.add('active');
+        wjs.classList.remove('active');
+        text.firstElementChild.style.display = 'none';
+        text.lastElementChild.style.display = 'block';
+    });
+
+    wjs.addEventListener('click', () => {
+        wjs.classList.add('active');
+        lhj.classList.remove('active');
+        text.firstElementChild.style.display = 'block';
+        text.lastElementChild.style.display = 'none';
+    });
 
 
 
