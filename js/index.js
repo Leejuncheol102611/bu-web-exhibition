@@ -1,4 +1,24 @@
+// 이벤트 리스너를 등록하여 페이지가 로드되었을 때와 윈도우 크기가 변경될 때 source를 변경합니다.
+document.addEventListener("DOMContentLoaded", function () {
+    const videoSource = document.getElementById("videoSource");
+    const bannerVideo = document.getElementById("banner");
 
+    function updateVideoSource() {
+        if (window.innerWidth <= 488) {
+            videoSource.src = "./video/mobile_banner.mp4";
+        } else {
+            videoSource.src = "./video/web_banner.mp4";
+        }
+        // 비디오를 다시 로드하여 변경된 소스를 적용합니다.
+        bannerVideo.load();
+    }
+
+    // 페이지 로드 시 소스 업데이트
+    updateVideoSource();
+
+    // 윈도우 크기 변경 시 소스 업데이트
+    window.addEventListener("resize", updateVideoSource);
+});
 
 
 
@@ -10,6 +30,10 @@ document.addEventListener('DOMContentLoaded', async () => {
     const creadit = document.querySelector(".creadit-username");
     const selectList = document.querySelector(".selectList");
     const underGraduateSection = document.querySelector("#underGraduate");
+
+
+
+
 
     // 사용자 데이터를 서버에서 가져오는 함수
     async function fetchUsersData() {
