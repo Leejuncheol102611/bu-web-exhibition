@@ -61,6 +61,7 @@ a {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  background-color: #000000;
 }
 
 .mainBanner video {
