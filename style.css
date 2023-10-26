@@ -323,14 +323,11 @@ section {
   display: flex;
   width: 90rem;
   height: 40rem;
-  padding: 0rem 1.5rem 1.5rem 1.5rem;
+  padding: 1.5rem 1.5rem 1.5rem 1.5rem;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
 
   border-radius: 0.75rem;
-  border-top: 1px solid #3DD6B1;
-
-  background: #141414;
 }
 
 #professor .profile {
@@ -348,9 +345,8 @@ section {
   align-items: center;
   flex: 1 0 0;
 
-  cursor: pointer;
 
-  color: var(--header-text-off);
+  color: var(--header-text-on);
   font-family: Noto Sans KR;
   font-size: 1.5rem;
   font-style: normal;
@@ -361,19 +357,15 @@ section {
   transition: 0.3s ease-out;
 }
 
-#professor .professor-name:hover {
-  color: var(--header-text-hover);
-}
-
-#professor .professor-name.active {
-  color: var(--header-text-on);
-}
 
 #professor .professor-box .text {
   width: 100%;
   height: 100%;
   padding: 1rem 0rem;
 
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
   overflow-y: scroll;
 }
 
@@ -382,20 +374,31 @@ section {
 }
 
 #professor .professor-box .text p {
-
-
   font-family: Noto Sans KR;
-  font-size: 1.25rem;
   font-style: normal;
-  font-weight: 400;
   line-height: normal;
   text-transform: capitalize;
+
+  font-size: 1.25rem;
+  font-weight: 400;
 }
 
+#professor .professor-box .text #firstP {
+  font-size: 3rem;
+  text-align: center;
+  font-weight: 700;
+}
 
+#professor .professor-box .text #secondP {
+  font-size: 2rem;
+  text-align: center;
+  font-weight: 300;
+}
 
-#professor .professor-box .text p:nth-child(1) {
-  display: none;
+#professor .professor-box .text #thirdP {
+  font-size: 2rem;
+  text-align: center;
+  font-weight: 300;
 }
 
 /*section 컨테이너 *특수*/

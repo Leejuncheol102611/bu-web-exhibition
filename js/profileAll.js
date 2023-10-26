@@ -91,6 +91,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
             // 작업 이미지 업데이트
             const workImage = document.getElementById('workImage');
+            workImage.src = "";
             workImage.src = work.workimg;
 
             // 작업 제목 업데이트
@@ -161,9 +162,9 @@ document.addEventListener('DOMContentLoaded', async () => {
         updateWork(0);
 
         // 웹용 작업 제목 클릭 이벤트 처리
-
         worksTitle.addEventListener('click', (event) => {
             if (event.target.tagName === 'LI') {
+
                 const clickedIndex = Array.from(worksTitle.children).indexOf(event.target);
                 updateWork(clickedIndex);
             }
