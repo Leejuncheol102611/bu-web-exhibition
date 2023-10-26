@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         document.getElementById('userEmail').textContent = userData.user.user_email;
         document.getElementById('profileUsername').textContent = userData.user.username;
         document.getElementById('profileTeam').textContent = userData.user.team;
-        document.getElementById('profileJob').textContent = userData.user.job;
+        //document.getElementById('profileJob').textContent = userData.user.job;
         document.getElementById('profileHashtags').textContent = userData.user.ctag;
         document.getElementById('commentUsername').textContent = userData.user.username + " 님에게 응원의 한마디를 남겨보세요";
         document.getElementById('optionValue').value = userData.user.id;
@@ -41,6 +41,16 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         // 프로필 소개, 수상 내역, 작업 이미지 등을 데이터에서 채우기
         document.getElementById('profileIntro').textContent = userData.user.profile_intro;
+
+
+        if (userData.user.portfolio) {
+            const profileName = document.querySelector(".profileName");
+            const aTag = document.createElement("a");
+            aTag.href = userData.user.portfolio;
+            aTag.target = "_blank";
+            aTag.textContent = "포트폴리오 바로가기"; // 링크의 텍스트를 설정할 수 있습니다.
+            profileName.appendChild(aTag);
+        }
 
         // 수상 내역 업데이트
         const awardsList = document.getElementById('awardsList');
@@ -118,7 +128,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 const prototypelinkAnchor = document.createElement("a");
                 prototypelinkAnchor.href = work.prototypelink;
                 prototypelinkAnchor.target = "_blank";
-                prototypelinkAnchor.textContent = "프로토타입 바로가기";
+                prototypelinkAnchor.textContent = "앱디자인 바로가기";
                 linksContainer.appendChild(prototypelinkAnchor);
             }
 

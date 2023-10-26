@@ -1,5 +1,6 @@
 html {
   font-size: 16px;
+  font-display: block;
 }
 
 body {
@@ -376,7 +377,13 @@ section {
   overflow-y: scroll;
 }
 
+#professor .professor-box .text::-webkit-scrollbar {
+  display: none;
+}
+
 #professor .professor-box .text p {
+
+
   font-family: Noto Sans KR;
   font-size: 1.25rem;
   font-style: normal;
@@ -385,7 +392,9 @@ section {
   text-transform: capitalize;
 }
 
-#professor .professor-box .text p:nth-child(2) {
+
+
+#professor .professor-box .text p:nth-child(1) {
   display: none;
 }
 
@@ -516,6 +525,8 @@ section {
 #profileBoxLeft .profileContact img {
   width: 1.25rem;
   height: 1.25rem;
+  border-radius: 0;
+  object-fit: contain;
 }
 
 .contactWrap p {
@@ -696,7 +707,24 @@ p::-webkit-scrollbar {
 .profileName {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 1.5rem;
+}
+
+.profileName .profiletextGroup {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.profileName a {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--footer-option-text);
+}
+
+.profileName a:hover {
+  color: var(--border-point);
 }
 
 .profileProjects {
@@ -743,6 +771,8 @@ p#profileIntro {
   line-height: normal;
   text-transform: capitalize;
 }
+
+
 
 
 #profileAwards {
@@ -861,9 +891,15 @@ p#profileIntro {
   gap: 0.75rem;
 }
 
+#useTools img {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
 .links {
   display: flex;
   flex-wrap: wrap;
+  gap: 1rem;
 
 }
 
@@ -2017,14 +2053,13 @@ footer {
   #profileBoxLeft .profileContact {
     display: flex;
     flex-direction: row;
+    gap: 0.75rem;
   }
 
   #profileBoxLeft .profileContact img {
     width: 0.875rem;
     height: 0.875rem;
   }
-
-
 
   .profileContact p {
     font-family: Noto Sans KR;
@@ -2049,7 +2084,6 @@ footer {
   #profileInfo .teamAndJob {
     color: var(--header-text-off);
     font-size: 0.875rem;
-    margin-left: 0.75rem;
   }
 
   #profileInfo p {
@@ -2062,7 +2096,21 @@ footer {
   }
 
   .profileName {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
     gap: 0.5rem;
+  }
+
+  .profileName .profiletextGroup {
+    gap: 0.5rem;
+  }
+
+  .profileName a {
+    text-align: end;
+    font-size: 0.875rem;
+    font-weight: 400;
+    color: var(--border-point);
   }
 
 
@@ -2295,9 +2343,13 @@ footer {
     gap: 0.75rem;
   }
 
+  #useTools img {
+    width: 2rem;
+    height: 2rem;
+  }
 
-  #useTools img:nth-child(4),
-  #useTools img:nth-child(5) {
+  #useTools img:nth-child(6),
+  #useTools img:nth-child(7) {
     display: none;
   }
 
