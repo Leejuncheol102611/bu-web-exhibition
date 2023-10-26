@@ -5,9 +5,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function updateVideoSource() {
         if (window.innerWidth <= 488) {
-            videoSource.src = "./video/mobile_banner.mp4";
+            videoSource.src = "./video/mobile_banner.webm";
         } else {
-            videoSource.src = "./video/web_banner.mp4";
+            videoSource.src = "./video/web_banner.webm";
         }
         // 비디오를 다시 로드하여 변경된 소스를 적용합니다.
         bannerVideo.load();
@@ -20,7 +20,65 @@ document.addEventListener("DOMContentLoaded", function () {
     window.addEventListener("resize", updateVideoSource);
 });
 
+document.addEventListener("DOMContentLoaded", function () {
+    const phrases = document.querySelectorAll(".pharse");
+    const creadits = document.querySelectorAll(".creadit-username");
+    const stillcuts = document.querySelectorAll(".stillcuts");
 
+    function checkPhrases() {
+        phrases.forEach((phrase) => {
+            const rect = phrase.getBoundingClientRect();
+            const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+
+            // 스크롤 이벤트를 통해 요소가 화면에 나타날 때 페이드 인을 적용합니다.
+            if (rect.top >= 0 && rect.bottom <= viewportHeight) {
+                phrase.style.opacity = 1;
+                phrase.style.transform = "translateY(0)";
+            }
+        });
+    }
+
+
+    function checkCreadit() {
+        creadits.forEach((creadit) => {
+            const rect = creadit.getBoundingClientRect();
+            const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+
+            // 스크롤 이벤트를 통해 요소가 화면에 나타날 때 페이드 인을 적용합니다.
+            if (rect.top >= 0 && rect.bottom <= viewportHeight) {
+                creadit.style.opacity = 1;
+                creadit.style.transform = "translateY(0)";
+            }
+        });
+    }
+
+    function checkStillcut() {
+        stillcuts.forEach((stillcut) => {
+            const rect = stillcut.getBoundingClientRect();
+            const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+
+            // 스크롤 이벤트를 통해 요소가 화면에 나타날 때 페이드 인을 적용합니다.
+            if (rect.top >= 0 && rect.bottom <= viewportHeight) {
+                stillcut.style.opacity = 1;
+                stillcut.style.transform = "translateY(0)";
+            }
+        });
+    }
+
+    // 페이지 로드 시 초기 상태 확인
+    checkCreadit();
+    // 페이지 로드 시 초기 상태 확인
+    checkPhrases();
+
+    checkStillcut();
+
+    // 스크롤 이벤트에 대한 리스너를 추가합니다.
+    window.addEventListener("scroll", checkPhrases);
+    window.addEventListener("scroll", checkStillcut);
+
+    // 스크롤 이벤트에 대한 리스너를 추가합니다.
+    window.addEventListener("scroll", checkCreadit);
+});
 
 document.addEventListener('DOMContentLoaded', async () => {
     const selectBg = document.querySelector(".selectBg");

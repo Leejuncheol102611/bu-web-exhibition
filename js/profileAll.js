@@ -167,6 +167,10 @@ document.addEventListener('DOMContentLoaded', async () => {
 
                 const clickedIndex = Array.from(worksTitle.children).indexOf(event.target);
                 updateWork(clickedIndex);
+
+                // 스크롤 이벤트를 트리거하여 특정 요소로 스크롤합니다.
+                const scrollToElement = document.getElementById("profileIntro"); // 이동할 요소의 ID를 지정하세요
+                scrollToElement.scrollIntoView({ behavior: "smooth" }); // 스크롤 이벤트를 트리거하여 원하는 요소로 부드럽게 스크롤합니다.
             }
         });
 
@@ -174,6 +178,10 @@ document.addEventListener('DOMContentLoaded', async () => {
         worksTitleMobile.addEventListener('change', (event) => {
             const selectedIndex = event.target.value - 1;
             updateWork(selectedIndex);
+
+            // 스크롤 이벤트를 트리거하여 특정 요소로 스크롤합니다.
+            const scrollToElement = document.getElementById("worksInfo"); // 이동할 요소의 ID를 지정하세요
+            scrollToElement.scrollIntoView({ behavior: "smooth" }); // 스크롤 이벤트를 트리거하여 원하는 요소로 부드럽게 스크롤합니다.
         });
     }
 

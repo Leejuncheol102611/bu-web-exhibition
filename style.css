@@ -321,6 +321,7 @@ section {
 /*section 프로페서*/
 #professor .professor-box {
   display: flex;
+  gap: 3rem;
   width: 90rem;
   height: 40rem;
   padding: 1.5rem 1.5rem 1.5rem 1.5rem;
@@ -381,6 +382,12 @@ section {
 
   font-size: 1.25rem;
   font-weight: 400;
+}
+
+#professor .professor-box .text .pharse {
+  opacity: 0;
+  transform: translateY(5rem);
+  transition: opacity 3s ease-out, transform 1s ease-out;
 }
 
 #professor .professor-box .text #firstP {
@@ -1180,6 +1187,12 @@ button#commentBtn:hover {
   flex-wrap: wrap;
 }
 
+#creadit .contentsWrap .creadit-username {
+  opacity: 0;
+  transform: translateY(5rem);
+  transition: opacity 2.5s ease-out, transform 1s ease-out;
+}
+
 .undergraduate {
   display: flex;
   flex-direction: column;
@@ -1232,14 +1245,20 @@ button#commentBtn:hover {
 .stillCutImgs li:nth-child(1) img,
 .stillCutImgs li:nth-child(3) img,
 .stillCutImgs li:nth-child(5) img,
-.stillCutImgs li:nth-child(6) img {
+.stillCutImgs li:nth-child(6) img,
+.stillCutImgs li:nth-child(8) img,
+.stillCutImgs li:nth-child(9) img,
+.stillCutImgs li:nth-child(11) img,
+.stillCutImgs li:nth-child(13) img {
   width: 18.375rem;
   height: 21.1875rem;
   border-radius: 0.75rem;
 }
 
 .stillCutImgs li:nth-child(2) img,
-.stillCutImgs li:nth-child(4) img {
+.stillCutImgs li:nth-child(4) img,
+.stillCutImgs li:nth-child(10) img,
+.stillCutImgs li:nth-child(12) img {
   width: 41.25rem;
   height: 21.1875rem;
   border-radius: 0.75rem;
@@ -1249,6 +1268,13 @@ button#commentBtn:hover {
   width: 87rem;
   height: 21.1875rem;
   border-radius: 0.75rem;
+}
+
+.stillcuts {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+
 }
 
 /*footer*/
@@ -1667,8 +1693,23 @@ footer {
     font-size: 1.25rem;
   }
 
-  #professor .professor-box .text p {
-    font-size: 1rem;
+
+  #professor .professor-box .text #firstP {
+    font-size: 2.5rem;
+    text-align: center;
+    font-weight: 700;
+  }
+
+  #professor .professor-box .text #secondP {
+    font-size: 1.25rem;
+    text-align: center;
+    font-weight: 300;
+  }
+
+  #professor .professor-box .text #thirdP {
+    font-size: 1.25rem;
+    text-align: center;
+    font-weight: 300;
   }
 
   /*section 컨테이너 *특수*/
